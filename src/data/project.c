@@ -34,7 +34,7 @@ extern GKeyFile * mokoiConfigTable;
 extern gchar * mokoiGameDirectories[];
 
 /* Local Variables */
-ProgressDialogWidgets mokoiGameComplier;
+extern ProgressDialogWidgets mokoiGameComplier;
 
 /* UI */
 const gchar * mokoiUI_Publish = GUI_PROJECT_PUBLISH;

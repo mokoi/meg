@@ -31,7 +31,7 @@ Permission is granted to anyone to use this software for any purpose, including 
 void Entity_RebuildDirectory( ProgressDialogWidgets * wids, const gchar * directory  );
 
 /* Global Variables */
-GtkWidget * mokoiCompileProgressBar;
+extern GtkWidget * mokoiCompileProgressBar;
 
 /* Local Variables */
 ProgressDialogWidgets mokoiGameComplier;
