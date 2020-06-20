@@ -95,14 +95,7 @@ void Meg_Project_Open()
 	{
 		gchar * package_location = NULL, * program_location = NULL;
 
-		#ifdef FORCE_PACKAGE
-		package_location = FORCE_PACKAGE_CHECKSUM_URL;
-		if ( package_location )
-		{
-			g_object_ref( dialog_box );
-			Meg_WebQueue_RetrieveText( alchera_init_window, package_location, NULL, NULL, &AL_CheckUpdate, dialog_box);
-		}
-		#endif
+
 
 		#ifdef PROGRAM_UPDATE_URL
 		program_location = PROGRAM_UPDATE_URL;
@@ -129,6 +122,14 @@ void Meg_Project_Open()
 
 	/* Examples */
 	gchar * demo_dir = Meg_Directory_Share( "examples" );
+
+	if ( !g_file_test(demo_dir, G_FILE_TEST_IS_DIR )) {
+		g_free(demo_dir);
+		//Work around for development
+		demo_dir = g_build_path(G_DIR_SEPARATOR_S, Meg_Directory(),"..", "..", "luxengine", "share", "mokoi-1.0", "examples", NULL );
+	}
+
+	g_print("%s", demo_dir);
 	GDir * demo_directory = g_dir_open( demo_dir, 0, &error );
 
 	if ( error )
@@ -159,21 +160,7 @@ void Meg_Project_Open()
 	}
 
 
-#ifdef FORCE_PACKAGE
-	gchar * content_package_location = Package_GetPath( FORCE_PACKAGE );
-	if ( !content_package_location )
-	{
-		content_package_location = Meg_Directory_DataFile("packages", FORCE_PACKAGE );
-	}
-	/* Check if package exist */
-	if ( g_file_test(content_package_location, G_FILE_TEST_IS_DIR ) )
-	{
-		GtkWidget * button_example = gtk_button_new_with_label("Content Package");
-		g_signal_connect( button_example, "clicked", G_CALLBACK(Meg_Event_OpenByButton), g_strdup(content_package_location) );
-		gtk_box_pack_start( GTK_BOX(box_example), button_example, FALSE, TRUE, 2 );
-	}
-	g_free(content_package_location);
-#endif
+
 
 	gtk_widget_show_all(Meg_Main_GetWidget());
 

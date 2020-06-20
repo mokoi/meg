@@ -50,16 +50,21 @@ void g_slist_free_full( GSList * list, GDestroyNotify free_func);
 void g_list_free_full( GList * list, GDestroyNotify free_func);
 #endif
 
-#ifndef GTK_STOCK_CANCEL
-#define GTK_STOCK_CANCEL "_Cancel"
-#define GTK_STOCK_OPEN "_Open"
-#define GTK_STOCK_OK "_OK"
-#define GTK_STOCK_HELP "_Help"
-#endif
 
-
-
-
-
+#define BUTTON_STOCK_CANCEL "_Cancel"
+#define BUTTON_STOCK_OPEN "_Open"
+#define BUTTON_STOCK_OK "_OK"
+#define BUTTON_STOCK_HELP "_Help"
+#define BUTTON_STOCK_YES "gtk-yes"
+#define BUTTON_STOCK_NO "gtk-no"
+#define BUTTON_STOCK_CLOSE "gtk-close"
+#define BUTTON_STOCK_ADD "gtk-add"
+#define BUTTON_STOCK_REMOVE "gtk-remove"
+#define BUTTON_STOCK_MISSING_IMAGE "broken-image"
+#define BUTTON_STOCK_STOP "gtk-stop"
+#define BUTTON_STOCK_SAVE "gtk-save"
+#define BUTTON_STOCK_MEDIA_PLAY "gtk-media-play"
+#define BUTTON_STOCK_MEDIA_PAUSE "gtk-media-pause"
+#define BUTTON_STOCK_MEDIA_STOP "gtk-media-stop"
 
 #endif

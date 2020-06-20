@@ -65,11 +65,11 @@ gboolean EntityEditor_Close( GtkWidget * widget, GdkEvent * event, GtkWidget * t
 	if ( modified )
 	{
 		gtk_message_dialog_format_secondary_text( GTK_MESSAGE_DIALOG(dialog), "%s has been changed since last save.", file );
-		gtk_dialog_add_buttons( GTK_DIALOG(dialog), "Close without Saving" , 1, GTK_STOCK_SAVE, 2, GTK_STOCK_CANCEL, 0, NULL );
+		gtk_dialog_add_buttons( GTK_DIALOG(dialog), "Close without Saving" , 1, BUTTON_STOCK_SAVE, 2, BUTTON_STOCK_CANCEL, 0, NULL );
 	}
 	else
 	{
-		gtk_dialog_add_buttons( GTK_DIALOG(dialog), GTK_STOCK_YES, 1, GTK_STOCK_CANCEL, 0, NULL );
+		gtk_dialog_add_buttons( GTK_DIALOG(dialog), BUTTON_STOCK_YES, 1, BUTTON_STOCK_CANCEL, 0, NULL );
 	}
 
 

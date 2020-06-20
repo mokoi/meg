@@ -21,7 +21,7 @@ Permission is granted to anyone to use this software for any purpose, including 
 */
 void MegWidget_Project_AddSetting(GtkButton * widget, GtkListStore * config_store )
 {
-	GtkWidget * dialog = gtk_dialog_new_with_buttons( "Add Settings to project", Meg_Main_GetWindow(), GTK_DIALOG_MODAL, GTK_STOCK_OK,  GTK_RESPONSE_ACCEPT, GTK_STOCK_CANCEL, GTK_RESPONSE_REJECT, NULL );
+	GtkWidget * dialog = gtk_dialog_new_with_buttons( "Add Settings to project", Meg_Main_GetWindow(), GTK_DIALOG_MODAL, BUTTON_STOCK_OK,  GTK_RESPONSE_ACCEPT, BUTTON_STOCK_CANCEL, GTK_RESPONSE_REJECT, NULL );
 	GtkWidget * entry = gtk_entry_new();
 	gtk_entry_set_max_length( GTK_ENTRY(entry), 64);
 
@@ -105,11 +105,12 @@ void MegWidget_Project_Menu_Display( GtkWidget * treeview, GdkEventButton *event
 	GtkWidget * menu = gtk_menu_new();
 	GtkWidget * item_add, * item_remove;
 
-	item_add = gtk_image_menu_item_new_from_stock(GTK_STOCK_ADD, NULL);
+
+	item_add = gtk_menu_item_new_with_label("Add");
 	g_signal_connect(item_add, "activate", G_CALLBACK(MegWidget_Project_AddSetting), config_store);
 	gtk_menu_shell_append( GTK_MENU_SHELL(menu), item_add );
 
-	item_remove = gtk_image_menu_item_new_from_stock(GTK_STOCK_REMOVE, NULL);
+	item_remove = gtk_menu_item_new_with_label("Remove");
 	g_signal_connect(item_remove, "activate", G_CALLBACK(MegWidget_Project_RemoveSetting), treeview);
 	gtk_menu_shell_append( GTK_MENU_SHELL(menu), item_remove );
 

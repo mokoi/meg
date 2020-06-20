@@ -18,7 +18,9 @@ $(warning Curl not found. Will not be able to access internet features.)
 		GTKPACKAGES += gtksourceview-3.0
 		PLATFORM_FLAGS += -DUSEGTKSOURCEVIEW
 	else
+
 $(warning GtkSourceView not found. Syntax highlighting disabled. )
+
 	endif
 else
 	ifeq (${shell pkg-config gtk+-2.0 --exists && echo 1}, 1)

@@ -441,7 +441,7 @@ void EntitySettings_AddOption( GtkButton * button, GtkWidget * table )
 	GtkWidget * dialog, * label, * combo, * vbox;
 
 	/* Create the widgets */
-	dialog = gtk_dialog_new_with_buttons( "Add New Option", Meg_Misc_ParentWindow(table), GTK_DIALOG_DESTROY_WITH_PARENT, GTK_STOCK_OK, GTK_RESPONSE_ACCEPT, NULL );
+	dialog = gtk_dialog_new_with_buttons( "Add New Option", Meg_Misc_ParentWindow(table), GTK_DIALOG_DESTROY_WITH_PARENT, BUTTON_STOCK_OK, GTK_RESPONSE_ACCEPT, NULL );
 	label = gtk_entry_new();
 	combo = gtk_combo_box_new();
 	vbox = gtk_box_new( GTK_ORIENTATION_VERTICAL, 1 );
@@ -501,7 +501,7 @@ void EntitySettings_EditPopup(GtkMenuItem *menuitem, gpointer user_data )
 	dialog = gtk_dialog_new_with_buttons( "Edit Settings",
 										  Meg_Main_GetWindow(),
 										  GTK_DIALOG_DESTROY_WITH_PARENT|GTK_DIALOG_MODAL,
-										  GTK_STOCK_CLOSE,
+										  BUTTON_STOCK_CLOSE,
 										  GTK_RESPONSE_ACCEPT,
 										  NULL);
 	content_area = gtk_dialog_get_content_area( GTK_DIALOG(dialog) );
@@ -893,7 +893,7 @@ void EntitySettings_AttachWidget( const gchar * name, EntitySettingsStruct * opt
 
 	if ( option->removable )
 	{
-		delete_button = gtk_button_new_from_stock( GTK_STOCK_REMOVE );
+		delete_button = gtk_button_new_from_stock( BUTTON_STOCK_REMOVE );
 		gtk_box_pack_start( GTK_BOX(box), delete_button, FALSE, FALSE, 2);
 	}
 	gtk_box_pack_start( GTK_BOX(list), box, FALSE, FALSE, 2);

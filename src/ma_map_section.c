@@ -100,7 +100,7 @@ GtkWidget * Meg_MapSection_Open( gchar * file )
 	Meg_Misc_SetLabel( notebook_label, "Section", file, ' ' );
 
 	notebook_close = gtk_event_box_new();
-	notebook_image = gtk_image_new_from_stock( GTK_STOCK_CLOSE, GTK_ICON_SIZE_MENU );
+	notebook_image = gtk_image_new_from_icon_name( BUTTON_STOCK_CLOSE, GTK_ICON_SIZE_MENU );
 	gtk_container_add( GTK_CONTAINER(notebook_close), notebook_image);
 	g_signal_connect( G_OBJECT(notebook_close), "button_press_event", G_CALLBACK(Meg_MapSection_CloseTab), widget_overview);
 
@@ -127,7 +127,7 @@ gboolean Meg_MapSection_Close( GtkWidget *widget, GdkEvent *event, gpointer user
 {
 	gint result = 0;
 	GtkWidget * dialog = gtk_message_dialog_new( Meg_Misc_ParentWindow( widget ), GTK_DIALOG_DESTROY_WITH_PARENT, GTK_MESSAGE_QUESTION, GTK_BUTTONS_NONE, "Save '%s'", gtk_window_get_title( GTK_WINDOW(widget) ) );
-	gtk_dialog_add_buttons( GTK_DIALOG(dialog), GTK_STOCK_YES, 1, GTK_STOCK_NO, 2, GTK_STOCK_CANCEL, 0, NULL );
+	gtk_dialog_add_buttons( GTK_DIALOG(dialog), BUTTON_STOCK_YES, 1, BUTTON_STOCK_NO, 2, BUTTON_STOCK_CANCEL, 0, NULL );
 	result = gtk_dialog_run( GTK_DIALOG(dialog) );
 	gtk_widget_destroy( dialog );
 
@@ -159,7 +159,7 @@ gboolean Meg_MapSection_CloseTab( GtkWidget *event_box, GdkEventButton *event, G
 {
 	gint result = 0;
 	GtkWidget * dialog = gtk_message_dialog_new( Meg_Misc_ParentWindow( overview ), GTK_DIALOG_DESTROY_WITH_PARENT, GTK_MESSAGE_QUESTION, GTK_BUTTONS_NONE, "Save '%s'", (gchar*)g_object_get_data( G_OBJECT(overview), "alchera-section-name" ) );
-	gtk_dialog_add_buttons( GTK_DIALOG(dialog), GTK_STOCK_YES, 1, GTK_STOCK_NO, 2, GTK_STOCK_CANCEL, 0, NULL );
+	gtk_dialog_add_buttons( GTK_DIALOG(dialog), BUTTON_STOCK_YES, 1, BUTTON_STOCK_NO, 2, BUTTON_STOCK_CANCEL, 0, NULL );
 	result = gtk_dialog_run( GTK_DIALOG(dialog) );
 	gtk_widget_destroy( dialog );
 

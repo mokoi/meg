@@ -249,8 +249,8 @@ gboolean GameCompiler_FileChooser( GtkWidget * button, GdkEventButton * event, G
 		GtkWidget * dialog = gtk_file_chooser_dialog_new ("Save File",
 									  Meg_Misc_ParentWindow(button),
 									  GTK_FILE_CHOOSER_ACTION_SAVE,
-									  GTK_STOCK_CANCEL, GTK_RESPONSE_CANCEL,
-									  GTK_STOCK_SAVE, GTK_RESPONSE_ACCEPT,
+									  BUTTON_STOCK_CANCEL, GTK_RESPONSE_CANCEL,
+									  BUTTON_STOCK_SAVE, GTK_RESPONSE_ACCEPT,
 									  NULL);
 
 

@@ -282,7 +282,7 @@ void MegWidget_Spritesheet_Import( gchar * filename )
 				filename
 	);
 
-	gtk_dialog_add_buttons( GTK_DIALOG(dialog), GTK_STOCK_CANCEL, GTK_RESPONSE_CANCEL, GTK_STOCK_OK, GTK_RESPONSE_ACCEPT, NULL);
+	gtk_dialog_add_buttons( GTK_DIALOG(dialog), BUTTON_STOCK_CANCEL, GTK_RESPONSE_CANCEL, BUTTON_STOCK_OK, GTK_RESPONSE_ACCEPT, NULL);
 
 	if ( gtk_dialog_run( GTK_DIALOG(dialog) ) == GTK_RESPONSE_ACCEPT )
 	{

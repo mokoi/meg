@@ -241,8 +241,8 @@ void Animation_AddSelected( GtkMenuItem * menuitem, GtkWidget * widget )
 
 	dialog = gtk_dialog_new_with_buttons( "Select sprite", Meg_Main_GetWindow(widget), \
 													  GTK_DIALOG_MODAL | GTK_DIALOG_DESTROY_WITH_PARENT, \
-													  GTK_STOCK_OK, GTK_RESPONSE_ACCEPT, \
-													  GTK_STOCK_CANCEL, GTK_RESPONSE_REJECT, \
+													  BUTTON_STOCK_OK, GTK_RESPONSE_ACCEPT, \
+													  BUTTON_STOCK_CANCEL, GTK_RESPONSE_REJECT, \
 													  NULL);
 	combo = Meg_ComboText_New( FALSE );
 	sprite = gtk_image_new();

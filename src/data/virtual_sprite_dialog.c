@@ -44,7 +44,7 @@ void VirtualSpriteDialog_UpdateName(GtkLabel *label, gchar * uri,  MapInfo * map
 {
 	g_return_if_fail( map_info );
 
-	GtkWidget * dialog = gtk_dialog_new_with_buttons( "Rename Virtual Sprite", Meg_Misc_ParentWindow(GTK_WIDGET(label)), GTK_DIALOG_MODAL, GTK_STOCK_OK, GTK_RESPONSE_ACCEPT, GTK_STOCK_CANCEL, GTK_RESPONSE_REJECT, NULL );
+	GtkWidget * dialog = gtk_dialog_new_with_buttons( "Rename Virtual Sprite", Meg_Misc_ParentWindow(GTK_WIDGET(label)), GTK_DIALOG_MODAL, BUTTON_STOCK_OK, GTK_RESPONSE_ACCEPT, BUTTON_STOCK_CANCEL, GTK_RESPONSE_REJECT, NULL );
 	GtkWidget * entry = gtk_entry_new();
 
 	gtk_entry_set_max_length( GTK_ENTRY(entry), 64 );

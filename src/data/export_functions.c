@@ -90,7 +90,7 @@ void ExportDialog_FileList_Add( GtkWidget * menuitem,  GtkTreeView * treeview )
 	glong len = g_utf8_strlen(mokoiBasePath, -1) + 1;
 
 	/* Dialog Setup */
-	GtkWidget * dialog = gtk_file_chooser_dialog_new ("Select File", NULL, GTK_FILE_CHOOSER_ACTION_OPEN,GTK_STOCK_CANCEL, GTK_RESPONSE_CANCEL, GTK_STOCK_OPEN, GTK_RESPONSE_ACCEPT, NULL);
+	GtkWidget * dialog = gtk_file_chooser_dialog_new ("Select File", NULL, GTK_FILE_CHOOSER_ACTION_OPEN,BUTTON_STOCK_CANCEL, GTK_RESPONSE_CANCEL, BUTTON_STOCK_OPEN, GTK_RESPONSE_ACCEPT, NULL);
 	gtk_file_chooser_set_select_multiple( GTK_FILE_CHOOSER(dialog), TRUE );
 	gtk_file_chooser_set_current_folder( GTK_FILE_CHOOSER(dialog), mokoiBasePath );
 
@@ -154,11 +154,11 @@ void ExportDialog_FileList_Display( GtkWidget *treeview, GdkEventButton * event,
 	GtkWidget * menu = gtk_menu_new();
 	GtkWidget * item_add, * item_remove;
 
-	item_add = gtk_image_menu_item_new_from_stock(GTK_STOCK_ADD, NULL);
+	item_add = gtk_image_menu_item_new_from_stock(BUTTON_STOCK_ADD, NULL);
 	g_signal_connect(item_add, "activate", G_CALLBACK(ExportDialog_FileList_Add), treeview);
 	gtk_menu_shell_append( GTK_MENU_SHELL(menu), item_add );
 
-	item_remove = gtk_image_menu_item_new_from_stock(GTK_STOCK_REMOVE, NULL);
+	item_remove = gtk_image_menu_item_new_from_stock(BUTTON_STOCK_REMOVE, NULL);
 	g_signal_connect(item_remove, "activate", G_CALLBACK(ExportDialog_FileList_Remove), treeview);
 	gtk_menu_shell_append( GTK_MENU_SHELL(menu), item_remove );
 
@@ -246,8 +246,8 @@ gboolean ExportDialog_FileChooser( GtkWidget * button, GdkEventButton * event, G
 		GtkWidget * dialog = gtk_file_chooser_dialog_new ("Save Package",
 									  Meg_Misc_ParentWindow(button),
 									  GTK_FILE_CHOOSER_ACTION_SAVE,
-									  GTK_STOCK_CANCEL, GTK_RESPONSE_CANCEL,
-									  GTK_STOCK_SAVE, GTK_RESPONSE_ACCEPT,
+									  BUTTON_STOCK_CANCEL, GTK_RESPONSE_CANCEL,
+									  BUTTON_STOCK_SAVE, GTK_RESPONSE_ACCEPT,
 									  NULL);
 
 

@@ -142,8 +142,8 @@ gboolean Meg_Dialog_OpenProject( )
 	GtkWidget * file_chooser = gtk_file_chooser_dialog_new( "Open Project",
 		GTK_WINDOW(alchera_init_window),
 		GTK_FILE_CHOOSER_ACTION_OPEN,
-		GTK_STOCK_CANCEL, GTK_RESPONSE_CANCEL,
-		GTK_STOCK_OPEN, GTK_RESPONSE_ACCEPT,
+		BUTTON_STOCK_CANCEL, GTK_RESPONSE_CANCEL,
+		BUTTON_STOCK_OPEN, GTK_RESPONSE_ACCEPT,
 		NULL);
 
 	gtk_window_set_transient_for( GTK_WINDOW(file_chooser), Meg_Main_GetWindow() );

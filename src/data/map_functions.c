@@ -458,7 +458,7 @@ void MapChooser_UpdatePreview( GtkComboBox * combo, GtkWidget * widget )
 	}
 	else
 	{
-		gtk_image_set_from_stock( GTK_IMAGE(widget), GTK_STOCK_MISSING_IMAGE, GTK_ICON_SIZE_DIALOG );
+		gtk_image_set_from_stock( GTK_IMAGE(widget), BUTTON_STOCK_MISSING_IMAGE, GTK_ICON_SIZE_DIALOG );
 	}
 
 	g_free( src );

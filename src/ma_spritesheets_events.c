@@ -552,8 +552,8 @@ void Meg_Spritesheet_SheetAdd( GtkButton * widget, gpointer user_data )
 	gtk_file_filter_add_pixbuf_formats( filter );
 	dialog = gtk_file_chooser_dialog_new( "Select Image File", Meg_Main_GetWindow(),
 		GTK_FILE_CHOOSER_ACTION_OPEN,
-		GTK_STOCK_CANCEL, GTK_RESPONSE_CANCEL,
-		GTK_STOCK_OPEN, GTK_RESPONSE_ACCEPT,
+		BUTTON_STOCK_CANCEL, GTK_RESPONSE_CANCEL,
+		BUTTON_STOCK_OPEN, GTK_RESPONSE_ACCEPT,
 		NULL);
 
 	gtk_file_chooser_add_filter( GTK_FILE_CHOOSER(dialog), filter );

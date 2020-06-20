@@ -270,7 +270,7 @@ GtkWidget * Meg_MapEdit_Open( gchar * file )
 	notebook_label = gtk_label_new(NULL);
 	notebook_box = gtk_box_new( GTK_ORIENTATION_HORIZONTAL, 2 );
 	notebook_close = gtk_event_box_new();
-	notebook_image = gtk_image_new_from_stock( GTK_STOCK_CLOSE, GTK_ICON_SIZE_MENU );
+	notebook_image = gtk_image_new_from_icon_name( BUTTON_STOCK_CLOSE, GTK_ICON_SIZE_MENU );
 
 	gtk_container_add( GTK_CONTAINER(notebook_close), notebook_image);
 	gtk_container_add( GTK_CONTAINER(notebook_box), notebook_label);
@@ -304,7 +304,7 @@ gboolean Meg_MapEdit_CloseTab( GtkWidget * event_box , GdkEvent *event, GtkWidge
 {
 	gint result = 0;
 	GtkWidget * dialog = gtk_message_dialog_new( Meg_Misc_ParentWindow( widget ), GTK_DIALOG_DESTROY_WITH_PARENT, GTK_MESSAGE_QUESTION, GTK_BUTTONS_NONE, "Save '%s'", (gchar*)g_object_get_data( G_OBJECT(widget), "alchera-map-name" ) );
-	gtk_dialog_add_buttons( GTK_DIALOG(dialog), GTK_STOCK_YES, 1, GTK_STOCK_NO, 2, GTK_STOCK_CANCEL, 0, NULL );
+	gtk_dialog_add_buttons( GTK_DIALOG(dialog), BUTTON_STOCK_YES, 1, BUTTON_STOCK_NO, 2, BUTTON_STOCK_CANCEL, 0, NULL );
 	result = gtk_dialog_run( GTK_DIALOG(dialog) );
 	gtk_widget_destroy( dialog );
 

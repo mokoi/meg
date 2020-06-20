@@ -130,7 +130,7 @@ void EntityState_Add( GtkButton * button, GtkComboBox * widget )
 {
 	GtkWidget * dialog, * frame, * entry;
 
-	dialog = gtk_dialog_new_with_buttons ("Add State", NULL, GTK_DIALOG_MODAL, GTK_STOCK_OK, GTK_RESPONSE_ACCEPT, GTK_STOCK_CANCEL, GTK_RESPONSE_REJECT, NULL);
+	dialog = gtk_dialog_new_with_buttons ("Add State", NULL, GTK_DIALOG_MODAL, BUTTON_STOCK_OK, GTK_RESPONSE_ACCEPT, BUTTON_STOCK_CANCEL, GTK_RESPONSE_REJECT, NULL);
 	frame = gtk_frame_new ("Name of State");
 	entry = gtk_entry_new ();
 
@@ -326,7 +326,7 @@ gboolean ManagedEntity_Close( GtkWidget * widget, GdkEvent * event, MokoiManaged
 	GtkWidget * window = gtk_widget_get_toplevel( widget );
 
 	dialog = gtk_message_dialog_new( GTK_WINDOW(window), GTK_DIALOG_DESTROY_WITH_PARENT, GTK_MESSAGE_QUESTION, GTK_BUTTONS_NONE, "Do you wish to close '%s'", managed_entity->file );
-	gtk_dialog_add_buttons( GTK_DIALOG(dialog), GTK_STOCK_YES, 1, GTK_STOCK_CANCEL, 0, NULL );
+	gtk_dialog_add_buttons( GTK_DIALOG(dialog), BUTTON_STOCK_YES, 1, BUTTON_STOCK_CANCEL, 0, NULL );
 
 	result = gtk_dialog_run( GTK_DIALOG(dialog) );
 	gtk_widget_destroy( dialog );

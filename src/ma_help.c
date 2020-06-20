@@ -53,6 +53,15 @@ gchar * Meg_Help_GetFilePath( const gchar * file )
 	if ( !help_global_directory )
 	{
 		help_global_directory = Meg_Directory_Share("help");
+		//Work around for development
+		if ( !g_file_test(help_global_directory, G_FILE_TEST_IS_DIR )) {
+			g_free(help_global_directory);
+			help_global_directory = g_build_path(G_DIR_SEPARATOR_S, Meg_Directory(),"..", "..", "mokoi-docs", NULL );
+
+		}
+
+
+
 	}
 
 	if ( file )

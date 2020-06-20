@@ -16,18 +16,20 @@ Permission is granted to anyone to use this software for any purpose, including 
 #include "global.h"
 #include "alchera_functions.h"
 #ifdef USEGTKSOURCEVIEW
-	#include <gtksourceview/gtksourceview.h>
-//	#include <gtksourceview/gtksource.h>
-	#include <gtksourceview/gtksourcemark.h>
-	#include <gtksourceview/gtksourcebuffer.h>
-	#include <gtksourceview/gtksourcelanguage.h>
-	#include <gtksourceview/gtksourcelanguagemanager.h>
-	#include <gtksourceview/gtksourcestyleschememanager.h>
-	#include <gtksourceview/gtksourcecompletion.h>
-	#include <gtksourceview/gtksourcecompletionprovider.h>
+
 
 	#if GTK_CHECK_VERSION(3,0,0)
-		#include <gtksourceview/gtksource.h>
+		#include <gtksourceview-4/gtksource.h>
+	#else
+		#include <gtksourceview/gtksourceview.h>
+		//	#include <gtksourceview/gtksource.h>
+		#include <gtksourceview/gtksourcemark.h>
+		#include <gtksourceview/gtksourcebuffer.h>
+		#include <gtksourceview/gtksourcelanguage.h>
+		#include <gtksourceview/gtksourcelanguagemanager.h>
+		#include <gtksourceview/gtksourcestyleschememanager.h>
+		#include <gtksourceview/gtksourcecompletion.h>
+		#include <gtksourceview/gtksourcecompletionprovider.h>
 	#endif
 #endif
 

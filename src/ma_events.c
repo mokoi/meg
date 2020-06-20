@@ -206,7 +206,7 @@ gboolean Meg_Event_CloseProgram( void )
 	GtkWidget * dialog, * label;
 	GtkWindow * parent = Meg_Main_GetWindow();
 
-	dialog = gtk_dialog_new_with_buttons( "Exit?", parent, GTK_DIALOG_MODAL | GTK_DIALOG_DESTROY_WITH_PARENT, GTK_STOCK_OK, GTK_RESPONSE_ACCEPT, GTK_STOCK_CANCEL, GTK_RESPONSE_REJECT, NULL);
+	dialog = gtk_dialog_new_with_buttons( "Exit?", parent, GTK_DIALOG_MODAL | GTK_DIALOG_DESTROY_WITH_PARENT, BUTTON_STOCK_OK, GTK_RESPONSE_ACCEPT, BUTTON_STOCK_CANCEL, GTK_RESPONSE_REJECT, NULL);
 	label = gtk_label_new( "Are you sure you wish to exit?" );
 	gtk_container_add( GTK_CONTAINER(gtk_dialog_get_content_area( GTK_DIALOG(dialog) )), label );
 	gtk_widget_show( label );

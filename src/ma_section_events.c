@@ -40,7 +40,7 @@ void Meg_MapSection_AddFile( GtkAction * action, GtkWidget * treeview )
 {
 	GtkWidget * dialog, * frame, * vbox, * entry;
 
-	dialog = gtk_dialog_new_with_buttons("New World", Meg_Main_GetWindow(), GTK_DIALOG_DESTROY_WITH_PARENT, GTK_STOCK_OK, GTK_RESPONSE_ACCEPT, GTK_STOCK_CANCEL, GTK_RESPONSE_REJECT, NULL);
+	dialog = gtk_dialog_new_with_buttons("New World", Meg_Main_GetWindow(), GTK_DIALOG_DESTROY_WITH_PARENT, BUTTON_STOCK_OK, GTK_RESPONSE_ACCEPT, BUTTON_STOCK_CANCEL, GTK_RESPONSE_REJECT, NULL);
 
 	frame = gtk_frame_new( "World Name" );
 	entry = gtk_entry_new();

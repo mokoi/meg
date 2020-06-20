@@ -77,7 +77,7 @@ void Audio_Payback_Unregister()
 void Audio_Music_Finished()
 {
 	if ( audioActiveModel )
-		gtk_tree_store_set( GTK_TREE_STORE(audioActiveModel), &audioActiveIter, 4, GTK_STOCK_MEDIA_PLAY, -1 );
+		gtk_tree_store_set( GTK_TREE_STORE(audioActiveModel), &audioActiveIter, 4, BUTTON_STOCK_MEDIA_PLAY, -1 );
 }
 
 
@@ -100,7 +100,7 @@ gboolean Audio_Music_Play( gchar * file, GtkTreeModel * model, GtkTreeIter iter 
 			Audio_Music_Finished();// If audio file already playing, change icon to media stop
 			if ( sdl_playback_play(full_path, Audio_Music_Finished) )
 			{
-				gtk_tree_store_set( GTK_TREE_STORE(model), &iter, 4, GTK_STOCK_MEDIA_STOP, -1 );
+				gtk_tree_store_set( GTK_TREE_STORE(model), &iter, 4, BUTTON_STOCK_MEDIA_STOP, -1 );
 				audioActiveModel = model;
 				audioActiveIter = iter;
 				results = TRUE;

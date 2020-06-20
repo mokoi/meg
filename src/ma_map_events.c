@@ -43,7 +43,7 @@ void Meg_MapEdit_AddFile( GtkAction * action, GtkTreeView * treeview )
 	GtkWidget * dialog, * frame, * vbox, * entry, * expander, * filechooser;
 
 	/* Dialiog */
-	dialog = gtk_dialog_new_with_buttons("New Map", Meg_Main_GetWindow(), GTK_DIALOG_DESTROY_WITH_PARENT, GTK_STOCK_OK, GTK_RESPONSE_ACCEPT, GTK_STOCK_CANCEL, GTK_RESPONSE_REJECT, NULL);
+	dialog = gtk_dialog_new_with_buttons("New Map", Meg_Main_GetWindow(), GTK_DIALOG_DESTROY_WITH_PARENT, BUTTON_STOCK_OK, GTK_RESPONSE_ACCEPT, BUTTON_STOCK_CANCEL, GTK_RESPONSE_REJECT, NULL);
 
 	frame = gtk_frame_new( "New Map" );
 	entry = gtk_entry_new();

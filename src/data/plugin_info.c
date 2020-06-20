@@ -339,8 +339,8 @@ gchar * AL_CopyProject( const gchar * source )
 
 	file_dialog = gtk_file_chooser_dialog_new( "Select Folder", Meg_Main_GetWindow(),
 											  GTK_FILE_CHOOSER_ACTION_SELECT_FOLDER,
-											  GTK_STOCK_CANCEL, GTK_RESPONSE_CANCEL,
-											  GTK_STOCK_OPEN, GTK_RESPONSE_ACCEPT,
+											  BUTTON_STOCK_CANCEL, GTK_RESPONSE_CANCEL,
+											  BUTTON_STOCK_OPEN, GTK_RESPONSE_ACCEPT,
 											  NULL);
 
 	if ( gtk_dialog_run( GTK_DIALOG(file_dialog) ) == GTK_RESPONSE_ACCEPT )

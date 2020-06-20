@@ -106,7 +106,7 @@ void Section_MapPreview( GtkComboBox * combo, GtkWidget * widget )
 	}
 	else
 	{
-		gtk_image_set_from_stock( GTK_IMAGE(widget), GTK_STOCK_MISSING_IMAGE, GTK_ICON_SIZE_DIALOG );
+		gtk_image_set_from_icon_name( GTK_IMAGE(widget), BUTTON_STOCK_MISSING_IMAGE, GTK_ICON_SIZE_DIALOG );
 	}
 
 }
@@ -274,7 +274,7 @@ gchar * Section_CreateNewMap( MokoiWorldFile * world, GtkWindow * window )
 	gchar * map = NULL;
 	GtkWidget * dialog, * frame, * vbox, * entry;
 
-	dialog = gtk_dialog_new_with_buttons("New Map", window, GTK_DIALOG_DESTROY_WITH_PARENT, GTK_STOCK_OK, GTK_RESPONSE_ACCEPT, GTK_STOCK_CANCEL, GTK_RESPONSE_REJECT, NULL);
+	dialog = gtk_dialog_new_with_buttons("New Map", window, GTK_DIALOG_DESTROY_WITH_PARENT, BUTTON_STOCK_OK, GTK_RESPONSE_ACCEPT, BUTTON_STOCK_CANCEL, GTK_RESPONSE_REJECT, NULL);
 	frame = gtk_frame_new( "Map Name" );
 	entry = gtk_entry_new();
 	vbox = gtk_dialog_get_content_area( GTK_DIALOG(dialog) );

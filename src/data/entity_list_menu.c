@@ -75,7 +75,7 @@ void EntityListMenu_CompileAction(GtkMenuItem * menuitem , GtkTreeView * tree_vi
 
 	if ( file )
 	{
-		dialog = gtk_dialog_new_with_buttons( "Compiling file", Meg_Main_GetWindow(), GTK_DIALOG_MODAL, GTK_STOCK_OK, GTK_RESPONSE_ACCEPT, NULL );
+		dialog = gtk_dialog_new_with_buttons( "Compiling file", Meg_Main_GetWindow(), GTK_DIALOG_MODAL, BUTTON_STOCK_OK, GTK_RESPONSE_ACCEPT, NULL );
 		log = gtk_text_view_new();
 
 

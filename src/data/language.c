@@ -103,13 +103,13 @@ void AL_Language_Types( GtkListStore * list )
 */
 gboolean AL_Language_Add( gchar * file )
 {
-	g_return_if_fail( mokoiBasePath != NULL );
+	g_return_val_if_fail( mokoiBasePath != NULL, FALSE );
 
 	GtkWidget * dialog, * entry;
 
 	/* UI */
 	GtkBuilder * ui = Meg_Builder_Create( mokoiUI_LanguageAdd, __func__, __LINE__ );
-	g_return_if_fail( ui );
+	g_return_val_if_fail( ui, FALSE );
 
 
 	dialog = GET_WIDGET( ui, "mokoi_language_add" );

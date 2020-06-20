@@ -283,8 +283,8 @@ gboolean SpriteCollision_ButtonPressed( GtkWidget * widget , GdkEventButton * ev
 			GtkWidget * dialog = gtk_dialog_new_with_buttons( "Replace Rectangle",
 				Meg_Misc_ParentWindow(widget),
 				GTK_DIALOG_DESTROY_WITH_PARENT,
-				GTK_STOCK_YES, GTK_RESPONSE_ACCEPT,
-				GTK_STOCK_NO, GTK_RESPONSE_REJECT,
+				BUTTON_STOCK_YES, GTK_RESPONSE_ACCEPT,
+				BUTTON_STOCK_NO, GTK_RESPONSE_REJECT,
 				NULL );
 			GtkWidget * entry = gtk_label_new( "" );
 

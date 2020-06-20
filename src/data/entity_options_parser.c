@@ -190,7 +190,7 @@ void EntitySettings_Editor_Menu_Add( GtkWidget * menuitem, GtkWidget *treeview )
 	GtkWidget * dialog, * label, * combo, * vbox;
 
 	/* Create the widgets */
-	dialog = gtk_dialog_new_with_buttons( "Add New Option", Meg_Misc_ParentWindow(treeview), GTK_DIALOG_DESTROY_WITH_PARENT, GTK_STOCK_OK, GTK_RESPONSE_ACCEPT, NULL );
+	dialog = gtk_dialog_new_with_buttons( "Add New Option", Meg_Misc_ParentWindow(treeview), GTK_DIALOG_DESTROY_WITH_PARENT, BUTTON_STOCK_OK, GTK_RESPONSE_ACCEPT, NULL );
 	label = gtk_entry_new();
 	combo = gtk_combo_box_new();
 	vbox = gtk_box_new( GTK_ORIENTATION_HORIZONTAL, 1 );
@@ -244,7 +244,7 @@ void EntitySettings_Editor_Menu_Display( GtkWidget *treeview, GdkEventButton *ev
 {
 	GtkWidget * menu, * menuitem;
 	menu = gtk_menu_new();
-	menuitem = gtk_image_menu_item_new_from_stock(GTK_STOCK_ADD, NULL);
+	menuitem = gtk_image_menu_item_new_from_stock(BUTTON_STOCK_ADD, NULL);
 	g_signal_connect(menuitem, "activate", (GCallback) EntitySettings_Editor_Menu_Add, treeview);
 	gtk_menu_shell_append(GTK_MENU_SHELL(menu), menuitem);
 	gtk_widget_show_all(menu);

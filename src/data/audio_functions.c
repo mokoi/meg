@@ -47,7 +47,7 @@ void Audio_Listing_Enumerate(void * data, const char *origdir, const char *fname
 		gtk_tree_store_append( list, &children, NULL);
 		/* meg_audio_store: displayname, dir, preload, filename, image */
 
-		gtk_tree_store_set( list, &children, 0, g_strdup( fname ), 1, g_strdup( origdir ), 2, 1, 3, g_strdup( path ), 4, GTK_STOCK_MEDIA_PLAY, -1 );
+		gtk_tree_store_set( list, &children, 0, g_strdup( fname ), 1, g_strdup( origdir ), 2, 1, 3, g_strdup( path ), 4, BUTTON_STOCK_MEDIA_PLAY, -1 );
 	}
 	g_free(path);
 }
@@ -127,7 +127,7 @@ void Audio_File_Selected( GtkTreeView * tree_view, GtkTreePath * path, GtkTreeVi
 */
 void Audio_File_Add( GtkButton * button, GtkTreeView * treeview )
 {
-	GtkWidget * dialog = gtk_file_chooser_dialog_new( "Select Audio File", Meg_Main_GetWindow(), GTK_FILE_CHOOSER_ACTION_OPEN, GTK_STOCK_CANCEL, GTK_RESPONSE_CANCEL, GTK_STOCK_OPEN, GTK_RESPONSE_ACCEPT, NULL );
+	GtkWidget * dialog = gtk_file_chooser_dialog_new( "Select Audio File", Meg_Main_GetWindow(), GTK_FILE_CHOOSER_ACTION_OPEN, BUTTON_STOCK_CANCEL, GTK_RESPONSE_CANCEL, BUTTON_STOCK_OPEN, GTK_RESPONSE_ACCEPT, NULL );
 	GtkWidget * widget, * check = NULL;
 
 

@@ -121,6 +121,11 @@ gboolean MegProject_Play()
 	#else
 		argv[0] = g_build_filename( Meg_Directory(), ENGINE_FILENAME, NULL);
 		argv[1] = g_strconcat( "'", mokoiBasePath, G_DIR_SEPARATOR_S, "'", NULL);
+
+		if ( !g_file_test(argv[0], G_FILE_TEST_EXISTS | G_FILE_TEST_IS_EXECUTABLE)) {
+			g_free(argv[0]);
+			argv[0] = g_build_filename( Meg_Directory(), "..", "..", "luxengine", "bin", ENGINE_FILENAME, NULL);
+		}
 	#endif
 	argv[2] = NULL;
 

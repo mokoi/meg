@@ -124,7 +124,7 @@ gint ImportDialog_UpdatePackageListing( gchar * filename, gpointer data )
 		}
 		else
 		{
-			gtk_list_store_set( GTK_LIST_STORE(tree_item->model), &tree_item->iter, 0, TRUE, 2, filename, 3, 1, 5, "Error", 6, GTK_STOCK_STOP, -1 );
+			gtk_list_store_set( GTK_LIST_STORE(tree_item->model), &tree_item->iter, 0, TRUE, 2, filename, 3, 1, 5, "Error", 6, BUTTON_STOCK_STOP, -1 );
 		}
 	}
 	if ( data )

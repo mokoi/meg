@@ -138,7 +138,7 @@ void Meg_MapSection_ButtonSave( GtkButton * button, GtkWidget * window  )
 	section_name = (gchar*)g_object_get_data( G_OBJECT(window), "alchera-section-name" );
 
 	dialog = gtk_message_dialog_new( parent_window, GTK_DIALOG_DESTROY_WITH_PARENT, GTK_MESSAGE_QUESTION, GTK_BUTTONS_NONE, "Save '%s'", section_name  );
-	gtk_dialog_add_buttons( GTK_DIALOG(dialog), GTK_STOCK_YES, 1, GTK_STOCK_NO, 2, GTK_STOCK_CANCEL, 0, NULL );
+	gtk_dialog_add_buttons( GTK_DIALOG(dialog), BUTTON_STOCK_YES, 1, BUTTON_STOCK_NO, 2, BUTTON_STOCK_CANCEL, 0, NULL );
 	result = gtk_dialog_run( GTK_DIALOG(dialog) );
 	gtk_widget_destroy( dialog );
 

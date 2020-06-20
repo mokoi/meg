@@ -223,6 +223,8 @@ gchar * Meg_Directory_Share( gchar * folder )
 		}
 		g_free(include_path);
 
+
+
 	}
 
 	return directory;
