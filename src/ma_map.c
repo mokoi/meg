@@ -32,7 +32,7 @@ void Meg_Help_Load( const gchar * file, GtkWidget * textview );
 
 /* UI */
 
-const gchar * alchera_map_ui_main = GUI_PAGE_MAP;
+
 
 
 /********************************
@@ -42,15 +42,14 @@ const gchar * alchera_map_ui_main = GUI_PAGE_MAP;
 void MegWidget_Map_Create()
 {
 	/* UI */
-	GtkBuilder * ui = Meg_Builder_Create(alchera_map_ui_main, __func__, __LINE__);
+	GtkBuilder * ui = Meg_Builder_Load("page_map", __func__, __LINE__);
 	g_return_if_fail( ui );
 
 	/* Widget */
-	GtkWidget * widget, * treeview_map, * help_text;
+	GtkWidget * widget, * treeview_map;
 
 	mapNotebook = GET_WIDGET( ui, "map_notebook" );
 	widget = GET_WIDGET( ui, "map_widget" );
-	help_text = GET_WIDGET( ui, "help_text" );
 	treeview_map = GET_WIDGET( ui, "treeview_map" );
 
 	mapFileStore = GET_LISTSTORE( ui, "store_map" );
@@ -58,7 +57,7 @@ void MegWidget_Map_Create()
 	g_object_ref(widget);
 
 	/* Tab Setting */
-	g_object_set_data( G_OBJECT(widget), "meg-help-page", g_strdup(PROGRAMSHELPDIRECTORY"/MapPage.xml") ); //Set the help page
+	g_object_set_data( G_OBJECT(widget), "meg-help-page", g_strdup("Editor/Map.xml") ); //Set the help page
 	Meg_Main_AddSection(widget, "Maps", PAGE_ICON_MAP);
 
 	/* Signals */
@@ -69,7 +68,7 @@ void MegWidget_Map_Create()
 	SET_OBJECT_SIGNAL(ui, "actionRemoveMap", "activate", G_CALLBACK(Meg_MapEdit_RemoveFile), treeview_map );
 
 	/* */
-	Meg_Help_Load(PROGRAMSHELPDIRECTORY"/Maps.xml", help_text);
+
 
 }
 

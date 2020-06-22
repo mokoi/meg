@@ -20,7 +20,7 @@
       </row>
     </data>
   </object>
-  <object class="GtkVBox" id="overview">
+  <object class="GtkBox" id="overview">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
     <child>

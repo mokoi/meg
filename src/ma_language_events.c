@@ -22,7 +22,6 @@ extern GtkListStore * language_string_liststore, * language_type_liststore, * la
 extern gchar * language_file;
 
 /* UI */
-const gchar * meg_language_edit_ui = GUI_LANGUAGE_EDIT;
 
 /* Functions */
 
@@ -93,7 +92,7 @@ void Meg_Language_EditDialog( GtkTreeView * tree_view, GtkTreePath * path, GtkTr
 	if ( gtk_tree_selection_get_selected(select, &model, &iter) )
 	{
 		/* UI */
-		ui = Meg_Builder_Create( meg_language_edit_ui, __func__, __LINE__ );
+		ui = Meg_Builder_Load( "language_edit", __func__, __LINE__ );
 		g_return_if_fail( ui );
 
 		dialog = GET_WIDGET( ui, "dialog" );

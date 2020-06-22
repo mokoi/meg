@@ -1,85 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- Generated with glade 3.36.0 -->
 <interface>
-  <requires lib="gtk+" version="2.20"/>
-  <!-- interface-naming-policy toplevel-contextual -->
-  <object class="GtkAction" id="action_layer_toback">
-    <property name="label">Move Down</property>
-    <property name="short_label" translatable="yes">Move Down</property>
-    <property name="stock_id">gtk-go-down</property>
-    <property name="always_show_image">True</property>
-  </object>
-  <object class="GtkAction" id="action_layer_tofront">
-    <property name="label">Move Up</property>
-    <property name="short_label" translatable="yes">Move Up</property>
-    <property name="stock_id">Up</property>
-  </object>
-  <object class="GtkAction" id="action_map_graphics">
-    <property name="label" translatable="yes">Switch Map Graphics</property>
-    <property name="short_label" translatable="yes">Switch Graphics</property>
-  </object>
-  <object class="GtkAction" id="action_map_openscript">
-    <property name="label" translatable="yes">Edit Map Script</property>
-    <property name="short_label" translatable="yes">Edit Script</property>
-    <property name="tooltip" translatable="yes">Edit the script for the current map</property>
-    <property name="stock_id">gtk-edit</property>
-    <property name="always_show_image">True</property>
-  </object>
-  <object class="GtkAction" id="action_map_undo">
-    <property name="label" translatable="yes">Undo</property>
-    <property name="short_label" translatable="yes">Undo</property>
-    <property name="tooltip" translatable="yes">Undoes Last Action</property>
-    <property name="stock_id">Undo</property>
-  </object>
-  <object class="GtkAction" id="action_object_attach">
-    <property name="label" translatable="yes">Attach Entity</property>
-    <property name="short_label" translatable="yes">Attach</property>
-    <property name="tooltip" translatable="yes">Attach an entity to object</property>
-    <property name="stock_id">gtk-execute</property>
-  </object>
-  <object class="GtkToggleAction" id="action_object_flip">
-    <property name="label" translatable="yes">Flip</property>
-    <property name="short_label" translatable="yes">Flip</property>
-  </object>
-  <object class="GtkAction" id="action_object_height_decrease">
-    <property name="label" translatable="yes">Height Decrease</property>
-    <property name="short_label" translatable="yes">Height Decrease</property>
-  </object>
-  <object class="GtkAction" id="action_object_height_increase"/>
-  <object class="GtkAction" id="action_object_keydown"/>
-  <object class="GtkAction" id="action_object_keyleft"/>
-  <object class="GtkAction" id="action_object_keyright"/>
-  <object class="GtkAction" id="action_object_keyup"/>
-  <object class="GtkToggleAction" id="action_object_path">
-    <property name="label" translatable="yes">Add/Remove Path</property>
-    <property name="short_label" translatable="yes">Add/Remove Path</property>
-  </object>
-  <object class="GtkAction" id="action_object_remove">
-    <property name="label">Remove Object</property>
-    <property name="short_label" translatable="yes">Remove</property>
-    <property name="stock_id">Remove</property>
-  </object>
-  <object class="GtkAction" id="action_object_rotate">
-    <property name="label" translatable="yes">Rotate Object 90°</property>
-    <property name="short_label" translatable="yes">Rotate</property>
-  </object>
-  <object class="GtkAction" id="action_object_setting">
-    <property name="label">Settings</property>
-    <property name="short_label" translatable="yes">Settings</property>
-    <property name="stock_id">gtk-properties</property>
-  </object>
-  <object class="GtkAction" id="action_object_width_decrease">
-    <property name="label" translatable="yes">Width Decrease</property>
-    <property name="short_label" translatable="yes">Width Decrease</property>
-  </object>
-  <object class="GtkAction" id="action_object_width_increase"/>
-  <object class="GtkToggleAction" id="action_path_modify">
-    <property name="label" translatable="yes">Path Editing Mode</property>
-    <property name="short_label" translatable="yes">Editing Mode</property>
-  </object>
-  <object class="GtkAction" id="action_resortobject">
-    <property name="label" translatable="yes">Resort Object</property>
-    <property name="tooltip" translatable="yes">Based on object Y axis</property>
-  </object>
+  <requires lib="gtk+" version="3.0"/>
   <object class="GtkAdjustment" id="adjust_map_height">
     <property name="lower">1</property>
     <property name="upper">64</property>
@@ -111,32 +33,12 @@ Hold Shift to place object multiple times
   <object class="GtkImage" id="image_next">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="stock">gtk-media-next</property>
-  </object>
-  <object class="GtkImage" id="image_next1">
-    <property name="visible">True</property>
-    <property name="can_focus">False</property>
-    <property name="stock">gtk-media-next</property>
-  </object>
-  <object class="GtkImage" id="image_next2">
-    <property name="visible">True</property>
-    <property name="can_focus">False</property>
-    <property name="stock">gtk-media-next</property>
+    <property name="icon_name">go-previous-symbolic</property>
   </object>
   <object class="GtkImage" id="image_prev">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="stock">gtk-media-previous</property>
-  </object>
-  <object class="GtkImage" id="image_prev1">
-    <property name="visible">True</property>
-    <property name="can_focus">False</property>
-    <property name="stock">gtk-media-previous</property>
-  </object>
-  <object class="GtkImage" id="image_prev2">
-    <property name="visible">True</property>
-    <property name="can_focus">False</property>
-    <property name="stock">gtk-media-previous</property>
+    <property name="icon_name">go-next-symbolic</property>
   </object>
   <object class="GtkMenu" id="object_menu">
     <property name="can_focus">False</property>
@@ -165,9 +67,9 @@ Hold Shift to place object multiple times
     </child>
     <child>
       <object class="GtkMenuItem" id="menu_sub_settings">
-        <property name="related_action">action_object_setting</property>
         <property name="visible">True</property>
         <property name="can_focus">False</property>
+        <property name="label" translatable="yes">Settings</property>
         <child type="submenu">
           <object class="GtkMenu" id="menu3">
             <property name="visible">True</property>
@@ -192,9 +94,9 @@ Hold Shift to place object multiple times
     </child>
     <child>
       <object class="GtkMenuItem" id="menu_undo">
-        <property name="related_action">action_map_undo</property>
         <property name="visible">True</property>
         <property name="can_focus">False</property>
+        <property name="label" translatable="yes">Undo</property>
       </object>
     </child>
     <child>
@@ -205,16 +107,16 @@ Hold Shift to place object multiple times
     </child>
     <child>
       <object class="GtkMenuItem" id="menu_layer_increase">
-        <property name="related_action">action_layer_tofront</property>
         <property name="visible">True</property>
         <property name="can_focus">False</property>
+        <property name="label" translatable="yes">Layer Increase</property>
       </object>
     </child>
     <child>
       <object class="GtkMenuItem" id="menu_layer_decrease">
-        <property name="related_action">action_layer_toback</property>
         <property name="visible">True</property>
         <property name="can_focus">False</property>
+        <property name="label" translatable="yes">Layer Decrease</property>
       </object>
     </child>
     <child>
@@ -234,14 +136,14 @@ Hold Shift to place object multiple times
             <property name="can_focus">False</property>
             <child>
               <object class="GtkMenuItem" id="menu_path">
-                <property name="related_action">action_object_path</property>
+                <property name="related_action"/>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
               </object>
             </child>
             <child>
               <object class="GtkMenuItem" id="menu_path_edit">
-                <property name="related_action">action_path_modify</property>
+                <property name="related_action"/>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
               </object>
@@ -252,9 +154,9 @@ Hold Shift to place object multiple times
     </child>
     <child>
       <object class="GtkMenuItem" id="menu_attach">
-        <property name="related_action">action_object_attach</property>
         <property name="visible">True</property>
         <property name="can_focus">False</property>
+        <property name="label" translatable="yes">Attach Entity</property>
       </object>
     </child>
     <child>
@@ -265,9 +167,9 @@ Hold Shift to place object multiple times
     </child>
     <child>
       <object class="GtkMenuItem" id="menu_object_remove">
-        <property name="related_action">action_object_remove</property>
         <property name="visible">True</property>
         <property name="can_focus">False</property>
+        <property name="label" translatable="yes">Remove Object</property>
       </object>
     </child>
   </object>
@@ -318,59 +220,18 @@ Hold Shift to place object multiple times
       </row>
     </data>
   </object>
-  <object class="GtkListStore" id="store_objects">
-    <columns>
-      <!-- column-name icon -->
-      <column type="GdkPixbuf"/>
-      <!-- column-name gchararray1 -->
-      <column type="gchararray"/>
-      <!-- column-name gchararray2 -->
-      <column type="gchararray"/>
-      <!-- column-name gboolean1 -->
-      <column type="gboolean"/>
-      <!-- column-name guchar1 -->
-      <column type="guchar"/>
-      <!-- column-name gint1 -->
-      <column type="gint"/>
-      <!-- column-name gint2 -->
-      <column type="gint"/>
-    </columns>
-  </object>
-  <object class="GtkListStore" id="wrap_store">
-    <columns>
-      <!-- column-name name -->
-      <column type="gchararray"/>
-      <!-- column-name value -->
-      <column type="gint"/>
-    </columns>
-    <data>
-      <row>
-        <col id="0" translatable="yes">None</col>
-        <col id="1">0</col>
-      </row>
-      <row>
-        <col id="0" translatable="yes">Left and right</col>
-        <col id="1">1</col>
-      </row>
-      <row>
-        <col id="0" translatable="yes">Top and bottom</col>
-        <col id="1">2</col>
-      </row>
-      <row>
-        <col id="0" translatable="yes">Both</col>
-        <col id="1">3</col>
-      </row>
-    </data>
-  </object>
-  <object class="GtkVBox" id="widget_editor">
+  <object class="GtkBox" id="widget_editor">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
+    <property name="orientation">vertical</property>
     <child>
-      <object class="GtkHPaned" id="paned_side_bar">
+      <object class="GtkPaned" id="paned_side_bar">
+        <property name="visible">True</property>
         <property name="can_focus">True</property>
         <child>
-          <object class="GtkVBox" id="vbox2">
+          <object class="GtkBox" id="vbox2">
             <property name="can_focus">False</property>
+            <property name="orientation">vertical</property>
             <child>
               <object class="GtkToolbar" id="toolbar1">
                 <property name="width_request">300</property>
@@ -396,7 +257,7 @@ Hold Shift to place object multiple times
                         <property name="can_focus">False</property>
                         <property name="label_xalign">0</property>
                         <child>
-                          <object class="GtkHBox" id="hbox2">
+                          <object class="GtkBox" id="hbox2">
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
                             <child>
@@ -453,6 +314,7 @@ Hold Shift to place object multiple times
                   </object>
                   <packing>
                     <property name="expand">False</property>
+                    <property name="homogeneous">False</property>
                   </packing>
                 </child>
                 <child>
@@ -491,6 +353,7 @@ Hold Shift to place object multiple times
                   </object>
                   <packing>
                     <property name="expand">False</property>
+                    <property name="homogeneous">False</property>
                   </packing>
                 </child>
                 <child>
@@ -516,12 +379,10 @@ Hold Shift to place object multiple times
                 <property name="can_focus">True</property>
                 <property name="hadjustment">adjustment1</property>
                 <property name="vadjustment">adjustment2</property>
-                <property name="hscrollbar_policy">automatic</property>
-                <property name="vscrollbar_policy">automatic</property>
                 <child>
                   <object class="GtkViewport" id="viewport_display">
                     <property name="can_focus">False</property>
-                    <property name="events"></property>
+                    <property name="events"/>
                     <property name="resize_mode">queue</property>
                     <property name="shadow_type">etched-in</property>
                   </object>
@@ -549,12 +410,14 @@ Hold Shift to place object multiple times
                   </object>
                   <packing>
                     <property name="expand">False</property>
+                    <property name="homogeneous">False</property>
                   </packing>
                 </child>
                 <child>
                   <object class="GtkToolButton" id="button_showkey">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
+                    <property name="is_important">True</property>
                     <property name="label" translatable="yes">Virtual keys</property>
                     <property name="use_underline">True</property>
                     <property name="stock_id">gtk-about</property>
@@ -572,112 +435,60 @@ Hold Shift to place object multiple times
               </packing>
             </child>
             <child>
-              <object class="GtkTable" id="box_virtualkeys">
+              <object class="GtkGrid" id="box_virtualkeys">
+                <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="no_show_all">True</property>
-                <property name="n_rows">3</property>
-                <property name="n_columns">8</property>
-                <property name="homogeneous">True</property>
                 <child>
-                  <placeholder/>
+                  <object class="GtkButton" id="button_keyleft">
+                    <property name="label" translatable="yes">left</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                  </object>
+                  <packing>
+                    <property name="left_attach">0</property>
+                    <property name="top_attach">1</property>
+                  </packing>
                 </child>
                 <child>
-                  <placeholder/>
+                  <object class="GtkButton" id="button_keydown">
+                    <property name="label" translatable="yes">down</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                  </object>
+                  <packing>
+                    <property name="left_attach">1</property>
+                    <property name="top_attach">2</property>
+                  </packing>
                 </child>
                 <child>
-                  <placeholder/>
-                </child>
-                <child>
-                  <placeholder/>
-                </child>
-                <child>
-                  <placeholder/>
-                </child>
-                <child>
-                  <placeholder/>
-                </child>
-                <child>
-                  <placeholder/>
-                </child>
-                <child>
-                  <placeholder/>
+                  <object class="GtkButton" id="button_keyup">
+                    <property name="label" translatable="yes">up</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                  </object>
+                  <packing>
+                    <property name="left_attach">1</property>
+                    <property name="top_attach">0</property>
+                  </packing>
                 </child>
                 <child>
                   <object class="GtkButton" id="button_keyright">
-                    <property name="label" translatable="yes">right</property>
-                    <property name="use_action_appearance">False</property>
-                    <property name="related_action">action_object_keyright</property>
+                    <property name="label" translatable="yes">Right</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
                   </object>
                   <packing>
                     <property name="left_attach">2</property>
-                    <property name="right_attach">3</property>
                     <property name="top_attach">1</property>
-                    <property name="bottom_attach">2</property>
-                    <property name="x_options">GTK_FILL</property>
-                    <property name="y_options"></property>
-                  </packing>
-                </child>
-                <child>
-                  <placeholder/>
-                </child>
-                <child>
-                  <object class="GtkButton" id="button_keydown">
-                    <property name="label" translatable="yes">down</property>
-                    <property name="use_action_appearance">False</property>
-                    <property name="related_action">action_object_keydown</property>
-                    <property name="visible">True</property>
-                    <property name="can_focus">True</property>
-                    <property name="receives_default">True</property>
-                  </object>
-                  <packing>
-                    <property name="left_attach">1</property>
-                    <property name="right_attach">2</property>
-                    <property name="top_attach">2</property>
-                    <property name="bottom_attach">3</property>
-                    <property name="x_options">GTK_FILL</property>
-                    <property name="y_options"></property>
-                  </packing>
-                </child>
-                <child>
-                  <object class="GtkButton" id="button_keyup">
-                    <property name="label" translatable="yes">up</property>
-                    <property name="use_action_appearance">False</property>
-                    <property name="related_action">action_object_keyup</property>
-                    <property name="visible">True</property>
-                    <property name="can_focus">True</property>
-                    <property name="receives_default">True</property>
-                  </object>
-                  <packing>
-                    <property name="left_attach">1</property>
-                    <property name="right_attach">2</property>
-                    <property name="x_options">GTK_FILL</property>
-                    <property name="y_options"></property>
-                  </packing>
-                </child>
-                <child>
-                  <object class="GtkButton" id="button_keyleft">
-                    <property name="label" translatable="yes">left</property>
-                    <property name="use_action_appearance">False</property>
-                    <property name="related_action">action_object_keyleft</property>
-                    <property name="visible">True</property>
-                    <property name="can_focus">True</property>
-                    <property name="receives_default">True</property>
-                  </object>
-                  <packing>
-                    <property name="top_attach">1</property>
-                    <property name="bottom_attach">2</property>
-                    <property name="x_options">GTK_FILL</property>
-                    <property name="y_options"></property>
                   </packing>
                 </child>
                 <child>
                   <object class="GtkButton" id="button_keyadvance">
-                    <property name="label" translatable="yes">Advance</property>
-                    <property name="use_action_appearance">False</property>
-                    <property name="related_action">action_object_setting</property>
+                    <property name="label" translatable="yes">Settings</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
@@ -685,33 +496,12 @@ Hold Shift to place object multiple times
                   </object>
                   <packing>
                     <property name="left_attach">3</property>
-                    <property name="right_attach">4</property>
-                    <property name="x_options">GTK_FILL</property>
-                    <property name="y_options"></property>
-                  </packing>
-                </child>
-                <child>
-                  <object class="GtkButton" id="button_keyflip">
-                    <property name="label" translatable="yes">Flip</property>
-                    <property name="use_action_appearance">False</property>
-                    <property name="related_action">action_object_flip</property>
-                    <property name="visible">True</property>
-                    <property name="can_focus">True</property>
-                    <property name="receives_default">True</property>
-                    <property name="use_underline">True</property>
-                  </object>
-                  <packing>
-                    <property name="left_attach">4</property>
-                    <property name="right_attach">5</property>
-                    <property name="x_options">GTK_FILL</property>
-                    <property name="y_options"></property>
+                    <property name="top_attach">0</property>
                   </packing>
                 </child>
                 <child>
                   <object class="GtkButton" id="button_keyrotate">
                     <property name="label" translatable="yes">Rotate</property>
-                    <property name="use_action_appearance">False</property>
-                    <property name="related_action">action_object_rotate</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
@@ -719,18 +509,12 @@ Hold Shift to place object multiple times
                   </object>
                   <packing>
                     <property name="left_attach">3</property>
-                    <property name="right_attach">4</property>
                     <property name="top_attach">2</property>
-                    <property name="bottom_attach">3</property>
-                    <property name="x_options">GTK_FILL</property>
-                    <property name="y_options"></property>
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkButton" id="button_keyrotate1">
-                    <property name="label" translatable="yes">Path</property>
-                    <property name="use_action_appearance">False</property>
-                    <property name="related_action">action_object_path</property>
+                  <object class="GtkButton" id="button_keyflip">
+                    <property name="label" translatable="yes">Flip</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
@@ -738,11 +522,32 @@ Hold Shift to place object multiple times
                   </object>
                   <packing>
                     <property name="left_attach">4</property>
-                    <property name="right_attach">5</property>
+                    <property name="top_attach">0</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkButton" id="button_keyrotate1">
+                    <property name="label" translatable="yes">Add/Remove Path</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                    <property name="use_underline">True</property>
+                  </object>
+                  <packing>
+                    <property name="left_attach">4</property>
                     <property name="top_attach">2</property>
-                    <property name="bottom_attach">3</property>
-                    <property name="x_options">GTK_FILL</property>
-                    <property name="y_options"></property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkButton" id="button9">
+                    <property name="label" translatable="yes">height -</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                  </object>
+                  <packing>
+                    <property name="left_attach">6</property>
+                    <property name="top_attach">0</property>
                   </packing>
                 </child>
                 <child>
@@ -754,27 +559,7 @@ Hold Shift to place object multiple times
                   </object>
                   <packing>
                     <property name="left_attach">5</property>
-                    <property name="right_attach">6</property>
                     <property name="top_attach">1</property>
-                    <property name="bottom_attach">2</property>
-                    <property name="x_options">GTK_FILL</property>
-                    <property name="y_options"></property>
-                  </packing>
-                </child>
-                <child>
-                  <placeholder/>
-                </child>
-                <child>
-                  <object class="GtkButton" id="button9">
-                    <property name="label" translatable="yes">height -</property>
-                    <property name="visible">True</property>
-                    <property name="can_focus">True</property>
-                    <property name="receives_default">True</property>
-                  </object>
-                  <packing>
-                    <property name="left_attach">6</property>
-                    <property name="right_attach">7</property>
-                    <property name="y_options"></property>
                   </packing>
                 </child>
                 <child>
@@ -786,11 +571,7 @@ Hold Shift to place object multiple times
                   </object>
                   <packing>
                     <property name="left_attach">6</property>
-                    <property name="right_attach">7</property>
                     <property name="top_attach">2</property>
-                    <property name="bottom_attach">3</property>
-                    <property name="x_options">GTK_FILL</property>
-                    <property name="y_options"></property>
                   </packing>
                 </child>
                 <child>
@@ -802,84 +583,8 @@ Hold Shift to place object multiple times
                   </object>
                   <packing>
                     <property name="left_attach">7</property>
-                    <property name="right_attach">8</property>
                     <property name="top_attach">1</property>
-                    <property name="bottom_attach">2</property>
-                    <property name="x_options">GTK_FILL</property>
-                    <property name="y_options"></property>
                   </packing>
-                </child>
-                <child>
-                  <placeholder/>
-                </child>
-                <child>
-                  <placeholder/>
-                </child>
-                <child>
-                  <placeholder/>
-                </child>
-                <child>
-                  <placeholder/>
-                </child>
-                <child>
-                  <placeholder/>
-                </child>
-                <child>
-                  <placeholder/>
-                </child>
-                <child>
-                  <placeholder/>
-                </child>
-                <child>
-                  <placeholder/>
-                </child>
-                <child>
-                  <placeholder/>
-                </child>
-                <child>
-                  <placeholder/>
-                </child>
-                <child>
-                  <placeholder/>
-                </child>
-                <child>
-                  <placeholder/>
-                </child>
-                <child>
-                  <placeholder/>
-                </child>
-                <child>
-                  <placeholder/>
-                </child>
-                <child>
-                  <placeholder/>
-                </child>
-                <child>
-                  <placeholder/>
-                </child>
-                <child>
-                  <placeholder/>
-                </child>
-                <child>
-                  <placeholder/>
-                </child>
-                <child>
-                  <placeholder/>
-                </child>
-                <child>
-                  <placeholder/>
-                </child>
-                <child>
-                  <placeholder/>
-                </child>
-                <child>
-                  <placeholder/>
-                </child>
-                <child>
-                  <placeholder/>
-                </child>
-                <child>
-                  <placeholder/>
                 </child>
                 <child>
                   <placeholder/>
@@ -926,20 +631,21 @@ Hold Shift to place object multiple times
             </child>
           </object>
           <packing>
-            <property name="resize">True</property>
-            <property name="shrink">False</property>
+            <property name="resize">False</property>
+            <property name="shrink">True</property>
           </packing>
         </child>
         <child>
-          <object class="GtkVBox" id="box_mapside">
+          <object class="GtkBox" id="box_mapside">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
+            <property name="orientation">vertical</property>
             <child>
               <object class="GtkLabel" id="alchera-label">
                 <property name="can_focus">False</property>
+                <property name="label" translatable="yes">Unknown Map</property>
                 <property name="xalign">0</property>
                 <property name="yalign">0.47999998927116394</property>
-                <property name="label" translatable="yes">Unknown Map</property>
                 <attributes>
                   <attribute name="weight" value="bold"/>
                 </attributes>
@@ -956,11 +662,12 @@ Hold Shift to place object multiple times
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <child>
-                  <object class="GtkVBox" id="vbox3">
+                  <object class="GtkBox" id="vbox3">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
+                    <property name="orientation">vertical</property>
                     <child>
-                      <object class="GtkHBox" id="hbox1">
+                      <object class="GtkBox" id="hbox1">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
                         <child>
@@ -1019,8 +726,6 @@ Hold Shift to place object multiple times
                     <child>
                       <object class="GtkScrolledWindow" id="scrolledwindow3">
                         <property name="can_focus">True</property>
-                        <property name="hscrollbar_policy">automatic</property>
-                        <property name="vscrollbar_policy">automatic</property>
                         <property name="shadow_type">in</property>
                         <child>
                           <object class="GtkIconView" id="iconview_objects">
@@ -1028,6 +733,7 @@ Hold Shift to place object multiple times
                             <property name="can_focus">True</property>
                             <property name="receives_default">True</property>
                             <property name="events">GDK_BUTTON_PRESS_MASK | GDK_KEY_PRESS_MASK | GDK_KEY_RELEASE_MASK | GDK_STRUCTURE_MASK</property>
+                            <property name="margin">6</property>
                             <property name="model">store_objects</property>
                             <property name="spacing">2</property>
                             <property name="row_spacing">0</property>
@@ -1072,15 +778,14 @@ Hold Shift to place object multiple times
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkVBox" id="vbox1">
+                  <object class="GtkBox" id="vbox1">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
+                    <property name="orientation">vertical</property>
                     <child>
                       <object class="GtkScrolledWindow" id="scrolledwindow2">
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
-                        <property name="hscrollbar_policy">automatic</property>
-                        <property name="vscrollbar_policy">automatic</property>
                         <child>
                           <object class="GtkTreeView" id="treeview_objects">
                             <property name="height_request">200</property>
@@ -1088,6 +793,9 @@ Hold Shift to place object multiple times
                             <property name="model">store_current_objects</property>
                             <property name="headers_clickable">False</property>
                             <property name="search_column">0</property>
+                            <child internal-child="selection">
+                              <object class="GtkTreeSelection"/>
+                            </child>
                             <child>
                               <object class="GtkTreeViewColumn" id="treeviewcolumn2">
                                 <property name="title">ID</property>
@@ -1154,10 +862,12 @@ Hold Shift to place object multiple times
                     </child>
                     <child>
                       <object class="GtkButton" id="button1">
+                        <property name="label" translatable="yes">Resort Object</property>
                         <property name="related_action">action_resortobject</property>
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="receives_default">True</property>
+                        <property name="use_underline">True</property>
                       </object>
                       <packing>
                         <property name="expand">False</property>
@@ -1191,13 +901,12 @@ Hold Shift to place object multiple times
                       <object class="GtkSpinButton" id="spin_w">
                         <property name="can_focus">True</property>
                         <property name="invisible_char">●</property>
-                        <property name="invisible_char_set">True</property>
+                        <property name="text" translatable="yes">1</property>
                         <property name="primary_icon_activatable">False</property>
                         <property name="secondary_icon_activatable">False</property>
-                        <property name="primary_icon_sensitive">True</property>
-                        <property name="secondary_icon_sensitive">True</property>
                         <property name="adjustment">adjust_map_width</property>
                         <property name="numeric">True</property>
+                        <property name="value">1</property>
                       </object>
                       <packing>
                         <property name="left_attach">1</property>
@@ -1231,13 +940,12 @@ Hold Shift to place object multiple times
                       <object class="GtkSpinButton" id="spin_h">
                         <property name="can_focus">True</property>
                         <property name="invisible_char">●</property>
-                        <property name="invisible_char_set">True</property>
+                        <property name="text" translatable="yes">1</property>
                         <property name="primary_icon_activatable">False</property>
                         <property name="secondary_icon_activatable">False</property>
-                        <property name="primary_icon_sensitive">True</property>
-                        <property name="secondary_icon_sensitive">True</property>
                         <property name="adjustment">adjust_map_height</property>
                         <property name="numeric">True</property>
+                        <property name="value">1</property>
                       </object>
                       <packing>
                         <property name="left_attach">1</property>
@@ -1365,17 +1073,18 @@ Hold Shift to place object multiple times
                         <property name="can_focus">True</property>
                         <property name="receives_default">True</property>
                         <property name="use_underline">True</property>
+                        <property name="always_show_image">True</property>
                       </object>
                       <packing>
                         <property name="top_attach">7</property>
                         <property name="bottom_attach">8</property>
                         <property name="x_options">GTK_FILL</property>
-                        <property name="y_options"></property>
+                        <property name="y_options"/>
                       </packing>
                     </child>
                     <child>
                       <object class="GtkButton" id="button-switchgraphics">
-                        <property name="label" translatable="yes">Advance</property>
+                        <property name="label" translatable="yes">Switch Graphics</property>
                         <property name="related_action">action_map_graphics</property>
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
@@ -1400,21 +1109,19 @@ Hold Shift to place object multiple times
                         <property name="top_attach">5</property>
                         <property name="bottom_attach">6</property>
                         <property name="x_options">GTK_FILL</property>
-                        <property name="y_options"></property>
+                        <property name="y_options"/>
                       </packing>
                     </child>
                     <child>
                       <object class="GtkScrolledWindow" id="scrolledwindow4">
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
-                        <property name="hscrollbar_policy">automatic</property>
-                        <property name="vscrollbar_policy">automatic</property>
                         <child>
                           <object class="GtkViewport" id="viewport1">
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
                             <child>
-                              <object class="GtkVBox" id="box_runtime">
+                              <object class="GtkBox" id="box_runtime">
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
                                 <child>
@@ -1474,7 +1181,6 @@ Hold Shift to place object multiple times
         <property name="visible">True</property>
         <property name="can_focus">False</property>
         <property name="spacing">2</property>
-        <property name="has_resize_grip">False</property>
       </object>
       <packing>
         <property name="expand">False</property>
@@ -1482,5 +1188,49 @@ Hold Shift to place object multiple times
         <property name="position">1</property>
       </packing>
     </child>
+  </object>
+  <object class="GtkListStore" id="store_objects">
+    <columns>
+      <!-- column-name icon -->
+      <column type="GdkPixbuf"/>
+      <!-- column-name gchararray1 -->
+      <column type="gchararray"/>
+      <!-- column-name gchararray2 -->
+      <column type="gchararray"/>
+      <!-- column-name gboolean1 -->
+      <column type="gboolean"/>
+      <!-- column-name guchar1 -->
+      <column type="guchar"/>
+      <!-- column-name gint1 -->
+      <column type="gint"/>
+      <!-- column-name gint2 -->
+      <column type="gint"/>
+    </columns>
+  </object>
+  <object class="GtkListStore" id="wrap_store">
+    <columns>
+      <!-- column-name name -->
+      <column type="gchararray"/>
+      <!-- column-name value -->
+      <column type="gint"/>
+    </columns>
+    <data>
+      <row>
+        <col id="0" translatable="yes">None</col>
+        <col id="1">0</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">Left and right</col>
+        <col id="1">1</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">Top and bottom</col>
+        <col id="1">2</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">Both</col>
+        <col id="1">3</col>
+      </row>
+    </data>
   </object>
 </interface>

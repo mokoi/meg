@@ -14,12 +14,11 @@ Permission is granted to anyone to use this software for any purpose, including 
 #include "global.h"
 #include <glib/gstdio.h>
 
-
 /* Required Headers */
 #include "ma_initwin.h"
 #include "ma_web.h"
 
-#if defined(__GNUWIN32__) && GTK_MAJOR_VERSION < 3
+#if defined(PLATFORM_WINDOW) && GTK_MAJOR_VERSION < 3
 #include <windows.h>
 #include <Shellapi.h>
 void meg_windows_url_handler( GtkLinkButton *button, const gchar *link_, gpointer user_data)
@@ -29,15 +28,15 @@ void meg_windows_url_handler( GtkLinkButton *button, const gchar *link_, gpointe
 #endif
 
 /* GtkWidget */
-GtkWidget * alchera_init_window = NULL;
 
 /* Global Variables */
 GKeyFile * meg_pref_storage = NULL;
+GResource * meg_file_resources = NULL;
 
 /* External Functions */
 gboolean Meg_Main_Init();
-void Entity_RebuildAll(  );
-void Funclist_Free( );
+void Entity_RebuildAll();
+void Funclist_Free();
 
 /* UI */
 
@@ -67,11 +66,6 @@ gboolean Meg_Load_Wait( GAsyncQueue * queue )
 */
 void checkDirectoryValues()
 {
-	g_print("MEGSHAREDIRECTORY: %s\n", MEGSHAREDIRECTORY);
-	g_print("ROOT_FILENAME: %s\n", ROOT_FILENAME);
-	g_print("ROOT_FILENAME_EXT: %s\n", ROOT_FILENAME_EXT);
-	g_print("ROOT_MIMETYPE: %s\n", ROOT_MIMETYPE);
-	g_print("GAME_EXTENSION: %s\n", GAME_EXTENSION);
 	g_print("ENGINE_FILENAME: %s\n", ENGINE_FILENAME);
 	g_print("PACKAGE_URL: %s\n", PACKAGE_URL);
 
@@ -97,11 +91,7 @@ void Meg_Preference_Load( )
 	pref_file = g_build_filename( config_directory, "settings.ini", NULL);
 	if ( !g_key_file_load_from_file( meg_pref_storage, pref_file, 0, NULL) )
 	{
-		/*
-		g_key_file_set_string(meg_pref_storage, "path","texteditor", NULL);
-		g_key_file_set_string(meg_pref_storage, "path","imageeditor",NULL);
-		g_key_file_set_string(meg_pref_storage, "path","audioeditor", NULL);
-		*/
+
 		g_key_file_set_integer(meg_pref_storage, "numeric","gridvalue",8);
 		g_key_file_set_integer(meg_pref_storage, "numeric","alignvalue",8);
 	}
@@ -125,7 +115,7 @@ void Meg_Icon_Update()
 	g_free(local_icons);
 }
 
-#if defined(__GNUWIN32__) && GTK_MAJOR_VERSION < 3
+#if defined(PLATFORM_WINDOWS) && GTK_MAJOR_VERSION < 3
 GtkLinkButtonUriFunc gtk_link_button_set_uri_hook (GtkLinkButtonUriFunc func, gpointer data, GDestroyNotify destroy);
 #endif
 
@@ -146,7 +136,7 @@ gint main (gint argc, char *argv[])
 	g_thread_init( NULL );
 	#endif
 
-	#if defined(__GNUWIN32__) && GTK_MAJOR_VERSION < 3
+	#if defined(PLATFORM_WINDOWS) && GTK_MAJOR_VERSION < 3
 	// Windows Bug fix for link buttons
 	gtk_link_button_set_uri_hook( meg_windows_url_handler, NULL, NULL);
 	#endif
@@ -154,6 +144,7 @@ gint main (gint argc, char *argv[])
 	/* Get Base Directory, and set up user settings */
 	PHYSFS_init( argv[0] );
 	Meg_Directory_Set( argv[0] );
+
 
 	/* Load settings */
 	settings = gtk_settings_get_default();

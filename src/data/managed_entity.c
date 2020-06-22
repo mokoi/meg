@@ -41,13 +41,13 @@ GtkTreeStore * mokoiEntityCausesStore = NULL;
 GtkWidget * mokoi_property_image = NULL;
 EntityState * mokoiEntityStateCurrent = NULL;
 
-const gchar * mokoiUI_ManagedProperty = "";
-const gchar * mokoiUI_ManagedState = "";
-const gchar * mokoiUI_ManagedFunction = "";
+
+
+
 
 /* UI */
 
-const gchar * mokoiUI_ManagedEntityEditor = GUI_MANAGED_ENTITY_EDITOR;
+
 
 /********************************
 * Compares EntityState name against a string
@@ -406,7 +406,7 @@ GtkWidget *  ManagedEntity_Edit(gchar * filename)
 	}
 
 	/* UI */
-	GtkBuilder * ui = Meg_Builder_Create(mokoiUI_ManagedEntityEditor, __func__, __LINE__);
+	GtkBuilder * ui = Meg_Builder_Load("Managed_Entity_Editor", __func__, __LINE__);
 	g_return_val_if_fail( ui, FALSE );
 
 	/* Widget */
@@ -504,7 +504,7 @@ void ManagedEntity_StateProperties(GtkTreeView *tree_view, GtkTreePath *path, Gt
 	/* UI */
 	GError * error = NULL;
 	GtkBuilder * ui = gtk_builder_new();
-	if ( !gtk_builder_add_from_string(ui, mokoiUI_ManagedState , -1, &error) )
+	if ( !gtk_builder_add_from_string(ui, "Managed_State", -1, &error) )
 	{
 		Meg_Error_Print( __func__, __LINE__, "UI creation error '%s'.", error->message );
 		return;
@@ -608,7 +608,7 @@ G_MODULE_EXPORT void ManagedEntity_FunctionProperties(GtkTreeView *tree_view, Gt
 	/* UI */
 	GError * error = NULL;
 	GtkBuilder * ui = gtk_builder_new();
-	if ( !gtk_builder_add_from_string(ui, mokoiUI_ManagedFunction , -1, &error) )
+	if ( !gtk_builder_add_from_string(ui, "Managed_Function", -1, &error) )
 	{
 		Meg_Error_Print( __func__, __LINE__, "UI creation error '%s'.", error->message );
 		return;

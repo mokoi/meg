@@ -1,83 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Generated with glade 3.36.0 -->
 <interface>
-  <requires lib="gtk+" version="3.0"/>
-  <object class="GtkAction" id="action_about">
-    <property name="label" translatable="yes">About</property>
-    <property name="stock_id">gtk-about</property>
-    <property name="always_show_image">True</property>
-    <signal name="activate" handler="Meg_Event_AboutProgram" swapped="no"/>
-  </object>
-  <object class="GtkAction" id="action_app">
-    <property name="label" translatable="yes">_Application</property>
-    <property name="stock_id">gtk-home</property>
-    <property name="always_show_image">True</property>
-  </object>
-  <object class="GtkAction" id="action_close">
-    <property name="label" translatable="yes">Close</property>
-    <property name="stock_id">gtk-close</property>
-    <property name="always_show_image">True</property>
-  </object>
-  <object class="GtkAction" id="action_compile">
-    <property name="label" translatable="yes">_Compile</property>
-    <property name="tooltip" translatable="yes">Compiles the game for distribution</property>
-    <property name="stock_id">gtk-execute</property>
-    <property name="always_show_image">True</property>
-    <signal name="activate" handler="Meg_Event_Compile" swapped="no"/>
-  </object>
-  <object class="GtkAction" id="action_export">
-    <property name="label">Export</property>
-    <property name="stock_id">gtk-convert</property>
-    <signal name="activate" handler="Meg_Event_Export" swapped="no"/>
-  </object>
-  <object class="GtkAction" id="action_import">
-    <property name="label" translatable="yes">Import</property>
-    <property name="stock_id">gtk-open</property>
-    <signal name="activate" handler="Meg_Event_Import" swapped="no"/>
-  </object>
-  <object class="GtkAction" id="action_open">
-    <property name="label" translatable="yes">Open</property>
-    <property name="stock_id">gtk-open</property>
-  </object>
-  <object class="GtkAction" id="action_package_update">
-    <property name="label" translatable="yes">Check for Update</property>
-  </object>
-  <object class="GtkAction" id="action_patch">
-    <property name="label" translatable="yes">Create Patch</property>
-  </object>
-  <object class="GtkAction" id="action_play">
-    <property name="label" translatable="yes">_Play</property>
-    <property name="tooltip" translatable="yes">Play project</property>
-    <property name="stock_id">gtk-media-play</property>
-    <property name="always_show_image">True</property>
-    <signal name="activate" handler="Meg_Event_Play" swapped="no"/>
-  </object>
-  <object class="GtkAction" id="action_preferences">
-    <property name="label" translatable="yes">Preferences</property>
-    <property name="stock_id">gtk-preferences</property>
-    <property name="always_show_image">True</property>
-  </object>
-  <object class="GtkAction" id="action_project">
-    <property name="label" translatable="yes">_Game</property>
-  </object>
-  <object class="GtkAction" id="action_quit">
-    <property name="label" translatable="yes">Quit</property>
-    <property name="stock_id">gtk-quit</property>
-    <signal name="activate" handler="Meg_Event_CloseProgram" swapped="no"/>
-  </object>
-  <object class="GtkAction" id="action_save">
-    <property name="label" translatable="yes">_Save</property>
-    <property name="stock_id">gtk-save</property>
-    <property name="always_show_image">True</property>
-  </object>
-  <object class="GtkAction" id="action_web_bug">
-    <property name="label" translatable="yes">Report Bug</property>
-  </object>
-  <object class="GtkAction" id="action_web_forum">
-    <property name="label" translatable="yes">Support Forums</property>
-  </object>
-  <object class="GtkAction" id="action_web_manual">
-    <property name="label" translatable="yes">Online Manual</property>
+  <requires lib="gtk+" version="3.8"/>
+  <object class="GtkImage" id="image1">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="icon_name">go-home-symbolic</property>
+    <property name="use_fallback">True</property>
+    <property name="icon_size">1</property>
   </object>
   <object class="GtkWindow" id="alchera_main_window">
     <property name="width_request">600</property>
@@ -85,13 +15,16 @@
     <property name="visible">True</property>
     <property name="can_focus">False</property>
     <property name="events">GDK_KEY_RELEASE_MASK</property>
-    <property name="title" translatable="yes">%BUILDHEADER_GUI_TITLE%</property>
+    <property name="title" translatable="yes">Meg - Mokoi Editor</property>
     <property name="window_position">center</property>
+    <property name="hide_titlebar_when_maximized">True</property>
+    <property name="icon_name">meg-game-editor</property>
     <property name="gravity">center</property>
     <child>
-      <object class="GtkVBox" id="vbox1">
+      <object class="GtkBox" id="vbox1">
         <property name="visible">True</property>
         <property name="can_focus">False</property>
+        <property name="orientation">vertical</property>
         <child>
           <object class="GtkMenuBar" id="menubar1">
             <property name="visible">True</property>
@@ -99,27 +32,28 @@
             <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
             <child>
               <object class="GtkImageMenuItem" id="menuitem7">
-                <property name="related_action">action_app</property>
+                <property name="label" translatable="yes">_Application</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="use_underline">True</property>
-                <property name="use_stock">True</property>
+                <property name="image">image1</property>
+                <property name="use_stock">False</property>
                 <child type="submenu">
                   <object class="GtkMenu" id="menu1">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <child>
                       <object class="GtkMenuItem" id="menu_about">
-                        <property name="related_action">action_about</property>
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
+                        <property name="label" translatable="yes">About</property>
                       </object>
                     </child>
                     <child>
                       <object class="GtkMenuItem" id="menu_prefs">
-                        <property name="related_action">action_preferences</property>
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
+                        <property name="label" translatable="yes">Preference</property>
                       </object>
                     </child>
                     <child>
@@ -129,24 +63,24 @@
                       </object>
                     </child>
                     <child>
-                      <object class="GtkMenuItem" id="menuitem10">
-                        <property name="related_action">action_web_manual</property>
+                      <object class="GtkMenuItem" id="menu_manual">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
+                        <property name="label" translatable="yes">Online Manual</property>
                       </object>
                     </child>
                     <child>
-                      <object class="GtkMenuItem" id="menuitem4">
-                        <property name="related_action">action_web_forum</property>
+                      <object class="GtkMenuItem" id="menu_forums">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
+                        <property name="label" translatable="yes">Support Forums</property>
                       </object>
                     </child>
                     <child>
-                      <object class="GtkMenuItem" id="menuitem11">
-                        <property name="related_action">action_web_bug</property>
+                      <object class="GtkMenuItem" id="menu_bug">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
+                        <property name="label" translatable="yes">Report Bug</property>
                       </object>
                     </child>
                     <child>
@@ -157,9 +91,9 @@
                     </child>
                     <child>
                       <object class="GtkMenuItem" id="menu_quit">
-                        <property name="related_action">action_quit</property>
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
+                        <property name="label" translatable="yes">Quit</property>
                       </object>
                     </child>
                   </object>
@@ -168,24 +102,23 @@
             </child>
             <child>
               <object class="GtkMenuItem" id="menuitem9">
-                <property name="related_action">action_project</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
+                <property name="label" translatable="yes">_Project</property>
+                <property name="use_underline">True</property>
                 <child type="submenu">
                   <object class="GtkMenu" id="menu2">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <child>
                       <object class="GtkMenuItem" id="menu_open">
-                        <property name="related_action">action_open</property>
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
+                        <property name="label" translatable="yes">Open</property>
                       </object>
                     </child>
                     <child>
                       <object class="GtkMenuItem" id="menu_new">
-                        <property name="use_action_appearance">False</property>
-                        <property name="related_action">action_open</property>
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
                         <property name="label" translatable="yes">New</property>
@@ -199,7 +132,7 @@
                     </child>
                     <child>
                       <object class="GtkImageMenuItem" id="menu_play">
-                        <property name="related_action">action_play</property>
+                        <property name="label">gtk-media-play</property>
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
                         <property name="use_underline">True</property>
@@ -209,7 +142,7 @@
                     </child>
                     <child>
                       <object class="GtkImageMenuItem" id="menu_save">
-                        <property name="related_action">action_save</property>
+                        <property name="label">gtk-save</property>
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
                         <property name="use_underline">True</property>
@@ -225,16 +158,26 @@
                     </child>
                     <child>
                       <object class="GtkMenuItem" id="menu_compile">
-                        <property name="related_action">action_compile</property>
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
+                        <property name="tooltip_text" translatable="yes">Compiles the game for distribution&lt;</property>
+                        <property name="label" translatable="yes">_Compile</property>
+                        <property name="use_underline">True</property>
+                        <signal name="activate" handler="Meg_Event_Compile" swapped="no"/>
                       </object>
                     </child>
                     <child>
                       <object class="GtkMenuItem" id="menu_patch">
-                        <property name="related_action">action_patch</property>
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
+                        <property name="label" translatable="yes">Create Patch</property>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkMenuItem" id="menu_publish">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="label" translatable="yes">Publish</property>
                       </object>
                     </child>
                     <child>
@@ -245,9 +188,10 @@
                     </child>
                     <child>
                       <object class="GtkMenuItem" id="menu_close">
-                        <property name="related_action">action_close</property>
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
+                        <property name="label" translatable="yes">Close</property>
+                        <signal name="activate" handler="Meg_Event_CloseProgram" swapped="no"/>
                       </object>
                     </child>
                   </object>
@@ -266,16 +210,16 @@
                     <property name="can_focus">False</property>
                     <child>
                       <object class="GtkMenuItem" id="menu_import">
-                        <property name="related_action">action_import</property>
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
+                        <property name="label" translatable="yes">Import</property>
                       </object>
                     </child>
                     <child>
                       <object class="GtkMenuItem" id="menu_export">
-                        <property name="related_action">action_export</property>
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
+                        <property name="label" translatable="yes">Export</property>
                       </object>
                     </child>
                     <child>
@@ -285,10 +229,10 @@
                       </object>
                     </child>
                     <child>
-                      <object class="GtkMenuItem" id="menuitem12">
-                        <property name="related_action">action_package_update</property>
+                      <object class="GtkMenuItem" id="menu_content_update">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
+                        <property name="label" translatable="yes">Check for Update</property>
                       </object>
                     </child>
                   </object>
@@ -303,9 +247,10 @@
           </packing>
         </child>
         <child>
-          <object class="GtkHBox" id="hbox1">
+          <object class="GtkBox" id="hbox1">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
+            <property name="spacing">2</property>
             <child>
               <object class="GtkToolbar" id="alchera_main_toolbar">
                 <property name="visible">True</property>
@@ -323,7 +268,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkVBox" id="alchera_main_frame">
+              <object class="GtkBox" id="alchera_main_frame">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <child>
@@ -331,6 +276,7 @@
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
+                    <property name="label" translatable="yes">No Game Project Loaded</property>
                   </object>
                   <packing>
                     <property name="expand">True</property>
@@ -343,6 +289,31 @@
                 <property name="expand">True</property>
                 <property name="fill">True</property>
                 <property name="position">1</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkScrolledWindow">
+                <property name="width_request">240</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="shadow_type">in</property>
+                <child>
+                  <object class="GtkViewport">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <child>
+                      <object class="GtkTextView" id="meg_main_inline_help">
+                        <property name="visible">True</property>
+                        <property name="can_focus">True</property>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="position">2</property>
               </packing>
             </child>
           </object>
@@ -370,10 +341,7 @@
       <placeholder/>
     </child>
   </object>
-  <object class="GtkAction" id="action_windows">
-    <property name="label" translatable="yes">Windows</property>
-  </object>
-  <object class="GtkScrolledWindow" id="scrolledwindow3">
+  <object class="GtkScrolledWindow" id="meg_logging_page">
     <property name="visible">True</property>
     <property name="can_focus">True</property>
     <child>

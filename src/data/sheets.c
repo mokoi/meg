@@ -37,7 +37,7 @@ extern GSList * mokoiSpritesheets;
 /* UI */
 
 
-const gchar * mokoiUI_SpriteAdd = GUI_SPRITE_ADD;
+
 
 
 /********************************
@@ -250,14 +250,9 @@ void AL_Sprite_Add( Spritesheet * spritesheet, GdkRectangle * sprite_rect )
 	GtkSpinButton * spin_mask, * spin_x, * spin_y, * spin_w, * spin_h, * spin_frames;
 
 	/* UI */
-	GError * error = NULL;
-	GtkBuilder * ui = gtk_builder_new();
+	GtkBuilder * ui = Meg_Builder_Load("sprite_add", __func__, __LINE__);
+	g_return_if_fail( ui );
 
-	if ( !gtk_builder_add_from_string( ui, mokoiUI_SpriteAdd, -1, &error ) )
-	{
-		Meg_Error_Print( __func__, __LINE__, "UI creation error '%s'.", error->message );
-		return;
-	}
 
 
 	dialog = GET_WIDGET( ui, "mokoi_sheet_addchild");

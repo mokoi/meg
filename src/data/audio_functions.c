@@ -29,7 +29,7 @@ extern gchar * mokoiBasePath;
 
 /* UI */
 
-const gchar * mokoiUI_AudioCustomWidget = GUI_AUDIO_CUSTOM_WIDGET;
+
 
 
 /********************************
@@ -133,22 +133,17 @@ void Audio_File_Add( GtkButton * button, GtkTreeView * treeview )
 
 	/* Add Custom Widget to the filer chooser dialog, allows user to preview file before adding it to projects */
 	GError * error = NULL;
-	GtkBuilder * ui = gtk_builder_new();
-	if ( gtk_builder_add_from_string(ui, mokoiUI_AudioCustomWidget, -1, &error) )
-	{
-		widget = GET_WIDGET( ui, "box1" );
-		check = GET_WIDGET( ui, "music" );
-		/**/
-		gtk_widget_show_all( widget );
-		gtk_file_chooser_set_extra_widget( GTK_FILE_CHOOSER(dialog), widget );
 
-		g_signal_connect( gtk_builder_get_object( ui, "play" ), "clicked", G_CALLBACK(Audio_Chooser_Play), dialog );
-	}
-	else
-	{
-		Meg_Error_Print( __func__, __LINE__, "UI creation error '%s'.", error->message );
-		return;
-	}
+	GtkBuilder * ui = Meg_Builder_Load("audio_custom_widget", __func__, __LINE__);
+	g_return_if_fail( ui );
+
+	widget = GET_WIDGET( ui, "box1" );
+	check = GET_WIDGET( ui, "music" );
+	/**/
+	gtk_widget_show_all( widget );
+	gtk_file_chooser_set_extra_widget( GTK_FILE_CHOOSER(dialog), widget );
+
+	g_signal_connect( gtk_builder_get_object( ui, "play" ), "clicked", G_CALLBACK(Audio_Chooser_Play), dialog );
 
 	Audio_Chooser_AddFilter( dialog, "Mod Music", "*.it;*.s3m;*.xm");
 	Audio_Chooser_AddFilter( dialog, "Ogg Audio", "*.ogg;*.oga");

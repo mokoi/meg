@@ -34,7 +34,7 @@ void EntitySettings_Parser_StartHandler( GMarkupParseContext *context, const gch
 static GMarkupParser mokoiEntitySettingsParser = {EntitySettings_Parser_StartHandler, NULL, NULL, NULL, NULL};
 
 /* UI */
-const gchar * mokoiUI_EntityOption = GUI_ENTITY_OPTION_EDITOR;
+
 
 
 /********************************
@@ -369,7 +369,7 @@ gboolean EntitySettings_Editor_Open( const gchar * entity_name, GtkWindow * pare
 	}
 
 	/* UI */
-	GtkBuilder * ui = Meg_Builder_Create( mokoiUI_EntityOption, __func__, __LINE__ );
+	GtkBuilder * ui = Meg_Builder_Load( "entity_option_editor", __func__, __LINE__ );
 	g_return_val_if_fail( ui, FALSE );
 
 	/* widget */

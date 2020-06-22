@@ -51,13 +51,22 @@ void g_list_free_full( GList * list, GDestroyNotify free_func);
 #endif
 
 
+#if !GTK_CHECK_VERSION(3,22,0)
+inline gboolean gtk_show_uri_on_window (GtkWindow *parent, const char *uri, guint32 timestamp, GError **error) {
+	return gtk_show_uri( NULL, uri, timestamp, error);
+}
+
+
+
+#endif
+
 #define BUTTON_STOCK_CANCEL "_Cancel"
 #define BUTTON_STOCK_OPEN "_Open"
 #define BUTTON_STOCK_OK "_OK"
 #define BUTTON_STOCK_HELP "_Help"
 #define BUTTON_STOCK_YES "gtk-yes"
 #define BUTTON_STOCK_NO "gtk-no"
-#define BUTTON_STOCK_CLOSE "gtk-close"
+#define BUTTON_STOCK_CLOSE "window-close-symbolic"
 #define BUTTON_STOCK_ADD "gtk-add"
 #define BUTTON_STOCK_REMOVE "gtk-remove"
 #define BUTTON_STOCK_MISSING_IMAGE "broken-image"

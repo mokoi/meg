@@ -14,7 +14,6 @@ Permission is granted to anyone to use this software for any purpose, including 
 #include "ma_web.h"
 
 /* UI */
-const gchar * UIRetrieveDialog = GUI_RETRIEVE_DIALOG;
 
 
 /********************************
@@ -108,7 +107,7 @@ GAsyncQueue * Meg_WebQueue_Retrieve(GtkWidget * parent, const gchar * url, gchar
 	}
 
 	/* UI */
-	GtkBuilder * ui = Meg_Builder_Create(UIRetrieveDialog, __func__, __LINE__);
+	GtkBuilder * ui = Meg_Builder_Load("Retrieve_Dialog", __func__, __LINE__);
 	g_return_val_if_fail( ui, NULL );
 
 	/* Widgets */
@@ -150,7 +149,7 @@ GAsyncQueue * Meg_WebQueue_RetrieveText(GtkWidget *parent, const gchar * url, gc
 	WebRetrieve * download = g_new0( WebRetrieve, 1 );
 
 	/* UI */
-	GtkBuilder * ui = Meg_Builder_Create(UIRetrieveDialog, __func__, __LINE__);
+	GtkBuilder * ui = Meg_Builder_Load("Retrieve_Dialog", __func__, __LINE__);
 	g_return_val_if_fail( ui, FALSE );
 
 	/* Widgets */

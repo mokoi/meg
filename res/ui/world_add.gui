@@ -16,11 +16,11 @@
     <property name="destroy_with_parent">True</property>
     <property name="type_hint">dialog</property>
     <child internal-child="vbox">
-      <object class="GtkVBox" id="dialog-vbox5">
+      <object class="GtkBox" id="dialog-vbox5">
         <property name="can_focus">False</property>
         <property name="spacing">2</property>
         <child internal-child="action_area">
-          <object class="GtkHButtonBox" id="dialog-action_area5">
+          <object class="GtkButtonBox" id="dialog-action_area5">
             <property name="can_focus">False</property>
             <property name="layout_style">end</property>
             <child>
@@ -63,7 +63,7 @@
           <object class="GtkEventBox" id="alchera-title">
             <property name="can_focus">False</property>
             <child>
-              <object class="GtkHBox" id="hbox3">
+              <object class="GtkBox" id="hbox3">
                 <property name="can_focus">False</property>
                 <child>
                   <object class="GtkImage" id="image7">

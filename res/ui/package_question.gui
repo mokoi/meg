@@ -10,7 +10,7 @@
 	<property name="text" translatable="yes">Would you like to extract package content?</property>
 	<property name="secondary_text" translatable="yes">By extracting the content, you have greater control of what is included in your game, but reduces the ease of updating. </property>
 	<child internal-child="vbox">
-	  <object class="GtkVBox" id="messagedialog-vbox1">
+	  <object class="GtkBox" id="messagedialog-vbox1">
 		<property name="can_focus">False</property>
 		<property name="orientation">vertical</property>
 		<property name="spacing">2</property>

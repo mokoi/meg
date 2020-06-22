@@ -27,10 +27,6 @@
 	#define MEGCONFIGDIRECTORY "mokoi-editor"
 #endif
 
-#ifndef PROGRAMSHELPDIRECTORY
-	#define PROGRAMSHELPDIRECTORY "Editor"
-#endif
-
 
 #ifndef ROOT_FILENAME
 	#define ROOT_FILENAME "game.mokoi"
@@ -66,7 +62,7 @@
 
 
 #ifndef BUG_URL
-	#define BUG_URL "http://sourceforge.net/p/mokoi/bugs/"
+	#define BUG_URL "https://github.com/mokoi"
 #endif
 
 #ifndef FORUM_URL
@@ -79,7 +75,7 @@
 
 
 #define PAGE_ICON_LANGUAGE "meg-language"
-#define PAGE_ICON_PLAY "meg-play"
+#define PAGE_ICON_PLAY "media-playback-start-symbolic"
 
 #define PAGE_ICON_AUDIO "meg-audio"
 
@@ -91,6 +87,6 @@
 #define PAGE_ICON_SPRITE "meg-spritesheet"
 #define PAGE_ICON_LOG "text-x-generic"
 
-#define PAGE_ICON_SCRIPTS "text-x-script"
+#define PAGE_ICON_SCRIPTS "accessories-text-editor"
 #define PAGE_ICON_HELP "help-browser"
 

@@ -1,9 +1,13 @@
 include/gdkkeysyms-backward.h
+include/stretchy_buffer.h
+include/ui_resources.h
 makefile
 makefiles/windows.make
 makefiles/linux.make
-makefiles/apple.make
+meg_audio/makefiles/linux.make
+meg_audio/makefiles/windows.make
 res/meg.rc
+res/ui/init_window.gui
 src/meg_setting.h
 src/ma_widgets.h
 src/ma_web.h
@@ -756,7 +760,6 @@ src/distribution/distro_windows.h
 include/miniz.c
 src/widgets/map_info.h
 src/widgets/map_info.c
-platform.mk
 setting.mk
 src/distribution/distro_linux64.c
 src/distribution/distro_linux64.h
@@ -775,9 +778,7 @@ src/distribution/distro_raspberrypi.h
 src/distribution/distro_windows.c
 src/distribution/distro_windows.h
 meg_audio/makefile
-meg_audio/setting.mk
 meg_pawn/makefile
-meg_pawn/setting.mk
 meg_pawn/src/libpawncc.c
 meg_pawn/src/mokoipawnc.c
 meg_pawn/src/test_app.c
@@ -848,7 +849,6 @@ src/ma_widgets.h
 src/main.c
 src/meg_setting.h
 src/widgets/bitmap_font.c
-meg_pawn/makefiles/apple.make
 meg_pawn/makefiles/linux.make
 meg_pawn/makefiles/windows.make
 buildheaderfile.c

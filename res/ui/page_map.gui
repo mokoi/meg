@@ -1,21 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- Generated with glade 3.36.0 -->
 <interface>
-  <requires lib="gtk+" version="2.20"/>
-  <!-- interface-naming-policy toplevel-contextual -->
-  <object class="GtkAction" id="actionAddMap">
-    <property name="label" translatable="yes">Add Map</property>
-    <property name="short_label" translatable="yes">Add</property>
-    <property name="tooltip" translatable="yes">Create or import new map</property>
-    <property name="stock_id">gtk-add</property>
-    <property name="always_show_image">True</property>
-  </object>
-  <object class="GtkAction" id="actionRemoveMap">
-    <property name="label" translatable="yes">Remove Map</property>
-    <property name="short_label" translatable="yes">Remove</property>
-    <property name="tooltip" translatable="yes">Remove current selected map</property>
-    <property name="stock_id">gtk-remove</property>
-    <property name="always_show_image">True</property>
-  </object>
+  <requires lib="gtk+" version="3.0"/>
   <object class="GtkListStore" id="store_map">
     <columns>
       <!-- column-name Display -->
@@ -30,63 +16,26 @@
       <column type="gchararray"/>
     </columns>
   </object>
-  <object class="GtkVBox" id="map_widget">
-    <property name="can_focus">False</property>
+  <object class="GtkPaned" id="map_widget">
+    <property name="visible">True</property>
+    <property name="can_focus">True</property>
     <child>
-      <object class="GtkEventBox" id="alchera-title">
-        <property name="can_focus">False</property>
-        <child>
-          <object class="GtkHBox" id="hbox1">
-            <property name="can_focus">False</property>
-            <child>
-              <object class="GtkImage" id="image1">
-                <property name="can_focus">False</property>
-                <property name="xpad">2</property>
-                <property name="ypad">2</property>
-                <property name="stock">gtk-zoom-fit</property>
-              </object>
-              <packing>
-                <property name="expand">False</property>
-                <property name="fill">True</property>
-                <property name="position">0</property>
-              </packing>
-            </child>
-            <child>
-              <object class="GtkLabel" id="alchera-label">
-                <property name="can_focus">False</property>
-                <property name="xalign">0</property>
-                <property name="label" translatable="yes">&lt;b&gt;Map Editor&lt;/b&gt;</property>
-                <property name="use_markup">True</property>
-              </object>
-              <packing>
-                <property name="expand">True</property>
-                <property name="fill">True</property>
-                <property name="position">1</property>
-              </packing>
-            </child>
-          </object>
-        </child>
-      </object>
-      <packing>
-        <property name="expand">False</property>
-        <property name="fill">False</property>
-        <property name="position">0</property>
-      </packing>
-    </child>
-    <child>
-      <object class="GtkHPaned" id="hpaned1">
+      <object class="GtkExpander">
         <property name="visible">True</property>
         <property name="can_focus">True</property>
+        <property name="expanded">True</property>
         <child>
-          <object class="GtkVBox" id="vbox3">
+          <object class="GtkBox" id="vbox3">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
+            <property name="vexpand">True</property>
+            <property name="orientation">vertical</property>
+            <property name="spacing">2</property>
             <child>
               <object class="GtkScrolledWindow" id="scrolledwindow2">
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="hscrollbar_policy">never</property>
-                <property name="vscrollbar_policy">automatic</property>
                 <child>
                   <object class="GtkTreeView" id="treeview_map">
                     <property name="visible">True</property>
@@ -95,6 +44,9 @@
                     <property name="headers_visible">False</property>
                     <property name="headers_clickable">False</property>
                     <property name="search_column">1</property>
+                    <child internal-child="selection">
+                      <object class="GtkTreeSelection"/>
+                    </child>
                     <child>
                       <object class="GtkTreeViewColumn" id="treeviewcolumn3">
                         <property name="max_width">64</property>
@@ -133,17 +85,16 @@
               </packing>
             </child>
             <child>
-              <object class="GtkHButtonBox" id="hbuttonbox2">
+              <object class="GtkButtonBox" id="hbuttonbox2">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="layout_style">spread</property>
                 <child>
                   <object class="GtkButton" id="button_addmap">
-                    <property name="related_action">actionAddMap</property>
+                    <property name="label" translatable="yes">Add Map</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
-                    <property name="use_stock">True</property>
                   </object>
                   <packing>
                     <property name="expand">False</property>
@@ -153,11 +104,10 @@
                 </child>
                 <child>
                   <object class="GtkButton" id="button_removemap">
-                    <property name="related_action">actionRemoveMap</property>
+                    <property name="label" translatable="yes">Remove Map</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
-                    <property name="use_stock">True</property>
                   </object>
                   <packing>
                     <property name="expand">False</property>
@@ -174,58 +124,37 @@
               </packing>
             </child>
           </object>
-          <packing>
-            <property name="resize">False</property>
-            <property name="shrink">True</property>
-          </packing>
         </child>
-        <child>
-          <object class="GtkNotebook" id="map_notebook">
+        <child type="label">
+          <object class="GtkLabel">
             <property name="visible">True</property>
-            <property name="can_focus">True</property>
-            <child>
-              <object class="GtkScrolledWindow" id="scrolledwindow1">
-                <property name="visible">True</property>
-                <property name="can_focus">True</property>
-                <property name="hscrollbar_policy">automatic</property>
-                <property name="vscrollbar_policy">automatic</property>
-                <child>
-                  <object class="GtkViewport" id="viewport1">
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
-                    <property name="shadow_type">none</property>
-                    <child>
-                      <object class="GtkTextView" id="help_text">
-                        <property name="visible">True</property>
-                        <property name="can_focus">True</property>
-                      </object>
-                    </child>
-                  </object>
-                </child>
-              </object>
-            </child>
-            <child type="tab">
-              <object class="GtkLabel" id="label1">
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="label" translatable="yes">&lt;b&gt;Help&lt;/b&gt;</property>
-                <property name="use_markup">True</property>
-              </object>
-              <packing>
-                <property name="tab_fill">False</property>
-              </packing>
-            </child>
+            <property name="can_focus">False</property>
+            <property name="label" translatable="yes">Maps</property>
+            <attributes>
+              <attribute name="weight" value="bold"/>
+            </attributes>
           </object>
-          <packing>
-            <property name="resize">True</property>
-            <property name="shrink">True</property>
-          </packing>
         </child>
       </object>
       <packing>
-        <property name="expand">True</property>
-        <property name="fill">True</property>
-        <property name="position">1</property>
+        <property name="resize">False</property>
+        <property name="shrink">True</property>
+      </packing>
+    </child>
+    <child>
+      <object class="GtkNotebook" id="map_notebook">
+        <property name="visible">True</property>
+        <property name="can_focus">True</property>
+        <child>
+          <placeholder/>
+        </child>
+        <child type="tab">
+          <placeholder/>
+        </child>
+      </object>
+      <packing>
+        <property name="resize">True</property>
+        <property name="shrink">True</property>
       </packing>
     </child>
   </object>

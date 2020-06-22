@@ -42,8 +42,6 @@ void MegWidget_Spritesheet_Refresh( GtkWidget * widget, gpointer user_data );
 
 /* UI */
 
-const gchar * alchera_sheet_ui = GUI_PAGE_SHEET;
-
 /********************************
 * MegWidget_Spritesheet_Create
 *
@@ -52,14 +50,9 @@ const gchar * alchera_sheet_ui = GUI_PAGE_SHEET;
 void MegWidget_Spritesheet_Create()
 {
 	GtkWidget * widget, * button_color;
-	GError * error = NULL;
+	GtkBuilder * ui = Meg_Builder_Load("page_sheet", __func__, __LINE__);
+	g_return_if_fail( ui );
 
-	GtkBuilder * ui = gtk_builder_new();
-	if ( !gtk_builder_add_from_string( ui, alchera_sheet_ui, -1, &error ) )
-	{
-		Meg_Error_Print( __func__, __LINE__, "UI creation error: %s", error->message );
-		return;
-	}
 
 	/* Widgets */
 	widget = GET_WIDGET( ui, "meg_sheeteditor_widget");
@@ -68,7 +61,7 @@ void MegWidget_Spritesheet_Create()
 	meg_sheet_spriteslist = GET_WIDGET( ui, "sprites_list");
 	meg_sheet_colourbutton = GET_WIDGET( ui, "button_color");
 	meg_sheet_modebutton = GET_WIDGET( ui, "button_mode");
-	meg_sheet_modelabel = GET_WIDGET( ui, "label_mode");
+
 	meg_sheet_label_filesize = GET_WIDGET( ui, "label_filesize");
 	meg_sheet_check_visible = GET_WIDGET( ui, "check_visible");
 	button_color = GET_WIDGET( ui, "button_color");
@@ -116,7 +109,7 @@ void MegWidget_Spritesheet_Create()
 	SET_OBJECT_SIGNAL( ui, "button_zoomout", "clicked", G_CALLBACK(Meg_Spritesheet_ButtonZoomOut), meg_sheet_maindisplay );
 
 	/* tab settings */
-	g_object_set_data( G_OBJECT(widget), "meg-help-page", g_strdup(PROGRAMSHELPDIRECTORY"/Spritesheet.xml") );
+	g_object_set_data( G_OBJECT(widget), "meg-help-page", g_strdup("Editor/Spritesheet.xml") );
 	Meg_Main_AddSection( widget, "Sprite Sheets", PAGE_ICON_SPRITE );
 
 	g_object_unref(ui);

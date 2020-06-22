@@ -25,8 +25,6 @@ gchar * language_file = NULL;
 
 /* UI */
 
-const gchar * meg_language_ui = GUI_PAGE_LANGUAGE;
-
 /* Functions */
 
 /********************************
@@ -38,7 +36,7 @@ void MegWidget_Language_Create()
 	GtkWidget * widget = NULL;
 
 	/* UI */
-	GtkBuilder * ui = Meg_Builder_Create( meg_language_ui, __func__, __LINE__ );
+	GtkBuilder * ui = Meg_Builder_Load( "page_language", __func__, __LINE__ );
 	g_return_if_fail( ui );
 
 	/* Widget */

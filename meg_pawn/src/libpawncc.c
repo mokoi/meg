@@ -280,7 +280,7 @@ long pc_lengthbin(void *handle)
 }
 
 
-#ifdef __GNUWIN32__
+#ifdef PLATFORM_WINDOWS
 #include <windows.h>
 BOOL APIENTRY DllMain ( HINSTANCE hInst, DWORD reason, LPVOID reserved)
 {

@@ -1,10 +1,9 @@
-#ifndef _ALCHERA_FUNCTIONS_H_
-	#define _ALCHERA_FUNCTIONS_H_
+#ifndef ALCHERA_FUNCTIONS_H
+	#define ALCHERA_FUNCTIONS_H
 	#include "ma_types.h"
 	#include "ma_misc.h"
-	#include "ui_resources.h"
 
-/**/
+	/**/
 	gboolean Meg_Loaders_AddRecent( const gchar * file_path );
 
 
@@ -19,7 +18,7 @@
 	gboolean Meg_Error_Check( GError * error, gboolean fatal, const gchar * function_name );
 
 	/**/
-	GtkWidget * Meg_Main_AddSection( GtkWidget * section_widget, gchar * section_title, gchar * section_icon );
+	GtkWidget * Meg_Main_AddSection( GtkWidget * section_widget, gchar * section_title, gchar * section_icon);
 	GtkWindow * Meg_Main_GetWindow();
 	GtkWidget * Meg_Main_GetWidget();
 
@@ -38,6 +37,7 @@
 	gboolean Meg_DirectoryCopy( const gchar * source, const  gchar * destination );
 	gboolean Meg_FileCopy(const gchar *source, const gchar *destination);
 	GtkBuilder * Meg_Builder_Create(const gchar * text, const char *funcname, gint line );
+	GtkBuilder * Meg_Builder_Load(const gchar * name, const char *funcname, gint line );
 
 	/* */
 	gchar * Meg_Directory();
@@ -81,6 +81,8 @@
 	/* */
 	void Meg_Misc_SetLabel( GtkWidget *label, const gchar * section, const gchar * text, gchar sep );
 	void Meg_Misc_SetLabel_Print( GtkWidget * label, const gchar * format, ... );
+
+	/* */
 
 #endif
 

@@ -9,14 +9,16 @@ Permission is granted to anyone to use this software for any purpose, including 
 3. This notice may not be removed or altered from any source distribution.
 ****************************/
 
-#ifndef _MISC_FUNCTIONS_H_
-#define _MISC_FUNCTIONS_H_
+#ifndef MISC_FUNCTIONS_H
+#define MISC_FUNCTIONS_H
 
 #include <gtk/gtk.h>
 #include <gdk-pixbuf/gdk-pixbuf.h>
 #include "physfs/physfs.h"
 
 #define MEG_COMBOFILE_NONE "(None)"
+
+GtkWidget * Meg_Builder_Get_Widget( GtkBuilder *builder, const gchar *name, const char * function, gint line );
 
 gulong Meg_FileCRC( const gchar * filename );
 gboolean Meg_RunProgram( gchar * program, ...);

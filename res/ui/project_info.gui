@@ -2,7 +2,7 @@
 <interface>
   <requires lib="gtk+" version="2.20"/>
   <!-- interface-naming-policy toplevel-contextual -->
-  <object class="GtkVBox" id="alchera_project_widget">
+  <object class="GtkBox" id="alchera_project_widget">
 	<property name="can_focus">False</property>
 	<property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
 	<child>
@@ -10,7 +10,7 @@
 		<property name="can_focus">False</property>
 		<property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
 		<child>
-		  <object class="GtkHBox" id="hbox1">
+		  <object class="GtkBox" id="hbox1">
 			<property name="visible">True</property>
 			<property name="can_focus">False</property>
 			<property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
@@ -56,7 +56,7 @@
 	  </packing>
 	</child>
 	<child>
-	  <object class="GtkVBox" id="widgetbox">
+	  <object class="GtkBox" id="widgetbox">
 		<property name="visible">True</property>
 		<property name="can_focus">False</property>
 		<child>
@@ -83,7 +83,7 @@
 		  </packing>
 		</child>
 		<child>
-		  <object class="GtkHButtonBox" id="hbuttonbox1">
+		  <object class="GtkButtonBox" id="hbuttonbox1">
 			<property name="visible">True</property>
 			<property name="can_focus">False</property>
 			<property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>

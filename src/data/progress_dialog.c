@@ -27,7 +27,7 @@ GtkWidget * mokoiCompileProgressBar;
 
 /* UI */
 
-const gchar * mokoiUI_ProgessDialog = GUI_PROGRESS_DIALOG;
+
 
 /********************************
 * ProgressDialog_Watch
@@ -142,7 +142,7 @@ gboolean ProgressDialog_CloseEvent( GtkWidget * window, GdkEvent  *event, gpoint
 gboolean ProgressDialog_Create( ProgressDialogWidgets * wid, gchar * title, const gchar * file_name )
 {
 	/* UI */
-	GtkBuilder * ui = Meg_Builder_Create(mokoiUI_ProgessDialog, __func__, __LINE__);
+	GtkBuilder * ui = Meg_Builder_Load("Progess_Dialog", __func__, __LINE__);
 	g_return_val_if_fail( ui, FALSE );
 
 	g_object_ref( ui );

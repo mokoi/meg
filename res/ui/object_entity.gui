@@ -8,7 +8,7 @@
     <property name="page_increment">10</property>
     <property name="page_size">10</property>
   </object>
-  <object class="GtkVBox" id="entity_page">
+  <object class="GtkBox" id="entity_page">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
     <child>
@@ -115,7 +115,7 @@
       </packing>
     </child>
     <child>
-      <object class="GtkVBox" id="runtime_page">
+      <object class="GtkBox" id="runtime_page">
         <property name="visible">True</property>
         <property name="can_focus">False</property>
         <child>
@@ -130,7 +130,7 @@
                 <property name="resize_mode">queue</property>
                 <property name="hadjustment">adjustment1</property>
                 <child>
-                  <object class="GtkVBox" id="box_settings">
+                  <object class="GtkBox" id="box_settings">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <child>
@@ -148,7 +148,7 @@
           </packing>
         </child>
         <child>
-          <object class="GtkHButtonBox" id="hbuttonbox1">
+          <object class="GtkButtonBox" id="hbuttonbox1">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <property name="homogeneous">True</property>

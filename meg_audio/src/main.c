@@ -13,12 +13,12 @@ Permission is granted to anyone to use this software for any purpose, including 
 #include <stdlib.h>
 #include <glib.h>
 #include <gmodule.h>
-#include <SDL.h>
-#include <SDL_mixer.h>
-#include <SDL_thread.h>
+#include <SDL2/SDL.h>
+#include <SDL2/SDL_mixer.h>
+#include <SDL2/SDL_thread.h>
 
 
-G_MODULE_EXPORT int sdl_playback_play( gchar * file, void (*music_finished)() )
+G_MODULE_EXPORT int sdl_playback_play( gchar * file, void (*music_finished)(void) )
 {
 	Mix_Music * music = Mix_LoadMUS( file );
 
@@ -52,7 +52,7 @@ G_MODULE_EXPORT void sdl_playback_init()
 
 }
 
-#if __GNUWIN32__
+#if defined (PLATFORM_WINDOWS)
 #include <windows.h>
 BOOL APIENTRY DllMain ( HINSTANCE hInst, DWORD reason, LPVOID reserved)
 {

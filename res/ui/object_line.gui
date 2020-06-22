@@ -40,10 +40,10 @@
     <property name="destroy_with_parent">True</property>
     <property name="type_hint">dialog</property>
     <child internal-child="vbox">
-      <object class="GtkVBox" id="dialog-vbox">
+      <object class="GtkBox" id="dialog-vbox">
         <property name="can_focus">False</property>
         <child internal-child="action_area">
-          <object class="GtkHButtonBox" id="dialog-action_area5">
+          <object class="GtkButtonBox" id="dialog-action_area5">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
@@ -88,7 +88,7 @@
           <object class="GtkEventBox" id="alchera-title">
             <property name="can_focus">False</property>
             <child>
-              <object class="GtkHBox" id="hbox3">
+              <object class="GtkBox" id="hbox3">
                 <property name="can_focus">False</property>
                 <child>
                   <object class="GtkImage" id="image7">
@@ -131,7 +131,8 @@
             <property name="visible">True</property>
             <property name="can_focus">True</property>
             <child>
-              <object class="GtkVBox" id="vbox2">
+              <object class="GtkBox" id="vbox2">
+<property name="orientation">vertical</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="spacing">1</property>
@@ -146,11 +147,12 @@
                         <property name="left_padding">6</property>
                         <property name="right_padding">6</property>
                         <child>
-                          <object class="GtkVBox" id="vbox1">
+                          <object class="GtkBox" id="vbox1">
+<property name="orientation">vertical</property>
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
                             <child>
-                              <object class="GtkHBox" id="hbox1">
+                              <object class="GtkBox" id="hbox1">
                                 <property name="can_focus">False</property>
                                 <child>
                                   <object class="GtkLabel" id="label3">
@@ -216,7 +218,7 @@
                               </packing>
                             </child>
                             <child>
-                              <object class="GtkHBox" id="hbox2">
+                              <object class="GtkBox" id="hbox2">
                                 <property name="can_focus">False</property>
                                 <child>
                                   <object class="GtkLabel" id="label4">
@@ -283,7 +285,7 @@
                               </packing>
                             </child>
                             <child>
-                              <object class="GtkHBox" id="box1">
+                              <object class="GtkBox" id="box1">
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
                                 <child>
@@ -351,7 +353,7 @@
                         <property name="bottom_padding">6</property>
                         <property name="left_padding">6</property>
                         <child>
-                          <object class="GtkHBox" id="hbox5">
+                          <object class="GtkBox" id="hbox5">
                             <property name="can_focus">False</property>
                             <property name="homogeneous">True</property>
                             <child>

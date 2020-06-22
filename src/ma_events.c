@@ -338,7 +338,7 @@ gboolean Meg_Event_PackageCheck()
 }
 
 
-#if defined(__GNUWIN32__) && GTK_MAJOR_VERSION < 3
+#if defined(PLATFORM_WINDOWS) && GTK_MAJOR_VERSION < 3
 void meg_windows_url_handler( GtkLinkButton *button, const gchar *link_, gpointer user_data);
 
 /********************************
@@ -382,7 +382,7 @@ gboolean Meg_Event_WebManual()
 */
 gboolean Meg_Event_WebBug()
 {
-	return gtk_show_uri( NULL, BUG_URL, GDK_CURRENT_TIME, NULL);
+	return gtk_show_uri_on_window( NULL, BUG_URL, GDK_CURRENT_TIME, NULL);
 }
 
 /********************************
@@ -392,7 +392,7 @@ gboolean Meg_Event_WebBug()
 */
 gboolean Meg_Event_WebForum()
 {
-	return gtk_show_uri( NULL, FORUM_URL, GDK_CURRENT_TIME, NULL);
+	return gtk_show_uri_on_window( NULL, FORUM_URL, GDK_CURRENT_TIME, NULL);
 }
 
 /********************************
@@ -402,7 +402,7 @@ gboolean Meg_Event_WebForum()
 */
 gboolean Meg_Event_WebManual()
 {
-	return gtk_show_uri( NULL, MANUAL_URL, GDK_CURRENT_TIME, NULL);
+	return gtk_show_uri_on_window( NULL, MANUAL_URL, GDK_CURRENT_TIME, NULL);
 }
 
 #endif

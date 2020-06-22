@@ -11,14 +11,15 @@
     <property name="destroy_with_parent">True</property>
     <property name="deletable">False</property>
     <child>
-      <object class="GtkVBox" id="vbox1">
+      <object class="GtkBox" id="vbox1">
+<property name="orientation">vertical</property>
         <property name="visible">True</property>
         <property name="can_focus">False</property>
         <child>
           <object class="GtkEventBox" id="alchera-title">
             <property name="can_focus">False</property>
             <child>
-              <object class="GtkHBox" id="title-box">
+              <object class="GtkBox" id="title-box">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <child>

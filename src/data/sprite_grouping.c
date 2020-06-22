@@ -21,7 +21,7 @@ Permission is granted to anyone to use this software for any purpose, including 
 
 
 /* UI */
-const gchar * mokoiUI_SpriteGrouping = GUI_SPRITE_GROUPING;
+
 
 
 /* Functions */
@@ -52,7 +52,7 @@ gboolean SpriteGrouping_ShowDialog( GtkWidget * parent_widget, SpriteChild * spr
 	sheet = (Spritesheet*)g_object_get_data( G_OBJECT(parent_widget), "Spritesheet" );
 
 	/* UI */
-	GtkBuilder * ui = Meg_Builder_Create(mokoiUI_SpriteGrouping, __func__, __LINE__);
+	GtkBuilder * ui = Meg_Builder_Load("sprite_grouping", __func__, __LINE__);
 	g_return_val_if_fail( ui, FALSE );
 
 	/* Widget */

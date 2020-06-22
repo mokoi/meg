@@ -34,8 +34,7 @@ GtkWidget * mokoiEntityMainLabel = NULL;
 GtkWidget * mokoiEntityTreeview = NULL;
 
 /* UI */
-const gchar * mokoiUI_EntityMenu = GUI_ENTITY_MENU;
-const gchar * mokoiUI_Entity = GUI_PAGE_ENTITY;
+
 
 /********************************
 * MegWidget_EntityList_Create
@@ -46,18 +45,10 @@ void MegWidget_EntityList_Create()
 	GtkWidget * widget;
 
 	/* UI */
-	GError * error = NULL;
-	GtkBuilder * ui = gtk_builder_new();
-	if ( !gtk_builder_add_from_string(ui, mokoiUI_Entity, -1, &error) )
-	{
-		Meg_Error_Print( __func__, __LINE__, "UI creation error '%s'.", error->message );
-		return;
-	}
-	if ( !gtk_builder_add_from_string( ui, mokoiUI_EntityMenu, -1, &error ) )
-	{
-		Meg_Error_Print( __func__, __LINE__, "UI creation error: %s", error->message );
-		return;
-	}
+	GtkBuilder * ui = Meg_Builder_Load("page_entity", __func__, __LINE__);
+	g_return_if_fail( ui );
+	GtkBuilder * menuui = Meg_Builder_Load("enity_menu", __func__, __LINE__);
+	g_return_if_fail( menuui );
 
 	/* Widgets */
 	widget = GET_WIDGET( ui, "meg_entitylist_widget" );
@@ -83,9 +74,7 @@ void MegWidget_EntityList_Create()
 	g_signal_connect( mokoiEntityTreeview, "popup_menu", G_CALLBACK(Meg_EntityList_Menu), mokoiEntityMenu );
 
 	/* Help support */
-	GtkWidget * help_text = GET_WIDGET( ui, "meg_entitylist_help" );
-	Meg_Help_Load( PROGRAMSHELPDIRECTORY"/Entities.xml", help_text );
-	g_object_set_data( G_OBJECT(widget), "meg-help-page", g_strdup(PROGRAMSHELPDIRECTORY"/Entities.xml") ); //Set the help page
+	g_object_set_data( G_OBJECT(widget), "meg-help-page", g_strdup("Editor/Entities.xml") ); //Set the help page
 
 	Meg_Main_AddSection( widget, "Scripts", PAGE_ICON_SCRIPTS );
 

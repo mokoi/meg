@@ -35,7 +35,7 @@ gboolean Meg_HelpParser_Load( GtkTextView * textview, gchar * content );
 gboolean Meg_HelpParser_Event( GtkWidget * text_view, GdkEvent * ev );
 
 /* UI */
-const gchar * alchera_help_ui = GUI_PAGE_HELP;
+
 
 /* Functions */
 
@@ -159,7 +159,7 @@ void Meg_Help_Load( const gchar * file, GtkWidget * textview )
 		{
 			if ( !Meg_HelpParser_Load( GTK_TEXT_VIEW(textview), "<div>Function Not Found</div>" ) )
 			{
-				Meg_Error_Print( (char*)__func__, __LINE__, "Can not parse help file '%s'", file);
+				Meg_Error_Print( __func__, __LINE__, "Can not parse help file '%s'", file);
 			}
 		}
 		else
@@ -167,7 +167,7 @@ void Meg_Help_Load( const gchar * file, GtkWidget * textview )
 			GString * string = Meg_Help_GeneratePage( function );
 			if ( !Meg_HelpParser_Load( GTK_TEXT_VIEW(textview), string->str ) )
 			{
-				Meg_Error_Print( (char*)__func__, __LINE__, "Can not parse help file '%s'", string->str);
+				Meg_Error_Print( __func__, __LINE__, "Can not parse help file '%s'", string->str);
 			}
 			g_string_free( string, TRUE );
 		}
@@ -192,7 +192,7 @@ void Meg_Help_Load( const gchar * file, GtkWidget * textview )
 		{
 			if ( !Meg_HelpParser_Load( GTK_TEXT_VIEW(textview), content ) )
 			{
-				Meg_Error_Print( (char*)__func__, __LINE__, "Can not parse help file '%s'", file);
+				Meg_Error_Print( __func__, __LINE__, "Can not parse help file '%s'", file);
 			}
 		}
 
@@ -499,7 +499,7 @@ void MegWidget_Help_Create()
 	GtkWidget * main_widget;
 
 	/* UI */
-	GtkBuilder * ui = Meg_Builder_Create(alchera_help_ui, __func__, __LINE__);
+	GtkBuilder * ui = Meg_Builder_Load("page_help", __func__, __LINE__);
 	g_return_if_fail( ui );
 
 	/* widget */

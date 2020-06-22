@@ -16,7 +16,7 @@ Permission is granted to anyone to use this software for any purpose, including 
 #include "data/package.h"
 
 /* Global Variables */
-extern GtkWidget * alchera_init_window;
+GtkWidget * alchera_init_window = NULL;
 GtkWidget * alchera_current_parent_window = NULL;
 
 /* External Functions */
@@ -24,7 +24,6 @@ GtkWidget * alchera_current_parent_window = NULL;
 
 /* UI */
 
-const gchar * alchera_init_ui = GUI_INIT;
 
 /********************************
 * Meg_Event_OpenByButton
@@ -70,34 +69,26 @@ void Meg_Project_Open()
 {
 	/* Create initial dialog windows */
 	GError * error = NULL;
-	GtkWidget * chooser_recent = NULL, * box_example, * button_open_game, * button_new_game, * dialog_box;
+	GtkWidget * chooser_recent = NULL, * box_example, * button_open_game, * button_new_game;
 	GtkRecentFilter * filter_recent = gtk_recent_filter_new();
 
-	GtkBuilder * ui = gtk_builder_new();
-	if ( !gtk_builder_add_from_string(ui, alchera_init_ui, -1, &error) )
-	{
-		Meg_Error_Print( __func__, __LINE__, "UI creation error: %s", alchera_init_ui );
-		g_clear_error( &error );
-		return;
-	}
+
+	GtkBuilder * ui = Meg_Builder_Load("init_window", __func__, __LINE__);
+	g_return_if_fail( ui );
 
 	alchera_init_window = GET_WIDGET( ui, "alchera-init-window" );
-	dialog_box = GET_WIDGET( ui, "dialog-vbox2" );
 	chooser_recent = GET_WIDGET( ui, "alchera-recent-chooser" );
 	box_example = GET_WIDGET( ui, "alchera-examples-box" );
-	button_open_game = GET_WIDGET( ui, "alchera-game-open" );
-	button_new_game = GET_WIDGET( ui, "alchera-game-new" );
+	button_open_game = GET_WIDGET( ui, "meg-game-open" );
+	button_new_game = GET_WIDGET( ui, "meg-game-new" );
 
 
 	/* Update Location */
 
 	if ( Meg_Web_Enable( ) )
 	{
-		gchar * package_location = NULL, * program_location = NULL;
-
-
-
 		#ifdef PROGRAM_UPDATE_URL
+		gchar * package_location = NULL, * program_location = NULL;
 		program_location = PROGRAM_UPDATE_URL;
 
 		if ( program_location )
@@ -116,7 +107,6 @@ void Meg_Project_Open()
 	/* Setup recent project window */
 	gtk_recent_filter_add_pattern( filter_recent, ROOT_FILENAME);
 	gtk_recent_filter_add_mime_type( filter_recent, ROOT_MIMETYPE );
-	gtk_recent_filter_add_mime_type( filter_recent, "application/x-ext-"ROOT_FILENAME_EXT );
 
 	gtk_recent_chooser_set_filter( GTK_RECENT_CHOOSER(chooser_recent), filter_recent );
 
@@ -129,7 +119,6 @@ void Meg_Project_Open()
 		demo_dir = g_build_path(G_DIR_SEPARATOR_S, Meg_Directory(),"..", "..", "luxengine", "share", "mokoi-1.0", "examples", NULL );
 	}
 
-	g_print("%s", demo_dir);
 	GDir * demo_directory = g_dir_open( demo_dir, 0, &error );
 
 	if ( error )

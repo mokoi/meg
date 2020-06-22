@@ -73,7 +73,7 @@ void  AL_Setting_Widget( GtkBuilder * ui )
 {
 	GtkWidget * custom_display_box;
 
-	custom_display_box = GET_WIDGET( ui, "hbox4" );
+	custom_display_box = GET_WIDGET( ui, "box_displaydimension" );
 
 	mokoiSettingsTable = g_hash_table_new(g_str_hash, g_str_equal);
 	mokoiSettingStore = GET_LISTSTORE( ui, "meg_settings_advance_store" ); /* G_TYPE_STRING, G_TYPE_STRING, G_TYPE_BOOLEAN */

@@ -30,7 +30,7 @@ MokoiLanguage mokoiDefaultDialog = {NULL, NULL, NULL};
 
 /* UI */
 
-const gchar * mokoiUI_LanguageAdd = GUI_LANGUAGE_ADD;
+
 
 /* Events */
 
@@ -108,7 +108,7 @@ gboolean AL_Language_Add( gchar * file )
 	GtkWidget * dialog, * entry;
 
 	/* UI */
-	GtkBuilder * ui = Meg_Builder_Create( mokoiUI_LanguageAdd, __func__, __LINE__ );
+	GtkBuilder * ui = Meg_Builder_Load( "Language_Add", __func__, __LINE__ );
 	g_return_val_if_fail( ui, FALSE );
 
 

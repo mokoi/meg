@@ -7,12 +7,13 @@
   <property name="type_hint">GDK_WINDOW_TYPE_HINT_DIALOG</property>
   <property name="has_separator">False</property>
   <child internal-child="vbox">
-   <object class="GtkVBox" id="dialog-vbox1">
+   <object class="GtkBox" id="dialog-vbox1">
 	<property name="visible">True</property>
 	<property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
 	<property name="spacing">2</property>
 	<child>
-	 <object class="GtkVBox" id="vbox1">
+	 <object class="GtkBox" id="vbox1">
+<property name="orientation">vertical</property>
 	  <property name="visible">True</property>
 	  <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
 	  <child>
@@ -21,7 +22,7 @@
 		<property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
 		<property name="label_xalign">0</property>
 		<child>
-		 <object class="GtkHBox" id="hbox1">
+		 <object class="GtkBox" id="hbox1">
 		  <property name="visible">True</property>
 		  <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
 		  <child>
@@ -99,7 +100,7 @@
 	 </packing>
 	</child>
 	<child internal-child="action_area">
-	 <object class="GtkHButtonBox" id="dialog-action_area1">
+	 <object class="GtkButtonBox" id="dialog-action_area1">
 	  <property name="visible">True</property>
 	  <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
 	  <property name="layout_style">GTK_BUTTONBOX_END</property>

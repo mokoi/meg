@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- Generated with glade 3.36.0 -->
 <interface>
-  <requires lib="gtk+" version="2.20"/>
-  <!-- interface-naming-policy toplevel-contextual -->
+  <requires lib="gtk+" version="3.0"/>
   <object class="GtkListStore" id="sheet_store">
     <columns>
       <!-- column-name filename -->
@@ -24,18 +24,37 @@
       </row>
     </data>
   </object>
-  <object class="GtkVBox" id="meg_sheeteditor_widget">
+  <object class="GtkImage" id="zoom-in-symbolic">
+    <property name="visible">True</property>
     <property name="can_focus">False</property>
+    <property name="icon_name">zoom-in-symbolic</property>
+    <property name="use_fallback">True</property>
+    <property name="icon_size">2</property>
+  </object>
+  <object class="GtkImage" id="zoom-original-symbolic">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="icon_name">zoom-original-symbolic</property>
+  </object>
+  <object class="GtkImage" id="zoom-out-symbolic">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="icon_name">zoom-out-symbolic</property>
+    <property name="use_fallback">True</property>
+    <property name="icon_size">2</property>
+  </object>
+  <object class="GtkBox" id="meg_sheeteditor_widget">
+    <property name="can_focus">False</property>
+    <property name="orientation">vertical</property>
     <child>
-      <object class="GtkHBox" id="hbox1">
+      <object class="GtkBox" id="hbox1">
         <property name="can_focus">False</property>
         <child>
           <object class="GtkImage" id="image1">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
-            <property name="xpad">2</property>
-            <property name="ypad">2</property>
-            <property name="stock">gtk-color-picker</property>
+            <property name="icon_name">gtk-select-color</property>
+            <property name="icon_size">3</property>
           </object>
           <packing>
             <property name="expand">False</property>
@@ -46,10 +65,10 @@
         <child>
           <object class="GtkLabel" id="alchera-label">
             <property name="can_focus">False</property>
-            <property name="xalign">0</property>
             <property name="label" translatable="yes">&lt;b&gt;Sprite Sheets&lt;/b&gt;</property>
             <property name="use_markup">True</property>
             <property name="wrap_mode">char</property>
+            <property name="xalign">0</property>
           </object>
           <packing>
             <property name="expand">True</property>
@@ -71,7 +90,7 @@
         <property name="left_padding">6</property>
         <property name="right_padding">6</property>
         <child>
-          <object class="GtkHBox" id="hbox2">
+          <object class="GtkBox" id="hbox2">
             <property name="can_focus">False</property>
             <property name="spacing">3</property>
             <child>
@@ -148,13 +167,14 @@
         <property name="left_padding">6</property>
         <property name="right_padding">6</property>
         <child>
-          <object class="GtkHPaned" id="hpaned2">
+          <object class="GtkPaned">
             <property name="visible">True</property>
             <property name="can_focus">True</property>
             <child>
-              <object class="GtkVBox" id="box1">
+              <object class="GtkBox" id="box1">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
+                <property name="orientation">vertical</property>
                 <child>
                   <object class="GtkFrame" id="frame2">
                     <property name="visible">True</property>
@@ -166,15 +186,15 @@
                         <property name="can_focus">False</property>
                         <property name="left_padding">12</property>
                         <child>
-                          <object class="GtkVBox" id="box2">
+                          <object class="GtkBox" id="box2">
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
                             <child>
                               <object class="GtkLabel" id="label_filesize">
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
-                                <property name="xalign">0</property>
                                 <property name="label" translatable="yes">File size:</property>
+                                <property name="xalign">0</property>
                               </object>
                               <packing>
                                 <property name="expand">False</property>
@@ -251,6 +271,9 @@
                             <property name="headers_clickable">False</property>
                             <property name="search_column">0</property>
                             <property name="enable_grid_lines">horizontal</property>
+                            <child internal-child="selection">
+                              <object class="GtkTreeSelection"/>
+                            </child>
                             <child>
                               <object class="GtkTreeViewColumn" id="spritelist-column1">
                                 <property name="resizable">True</property>
@@ -305,10 +328,12 @@
               </packing>
             </child>
             <child>
-              <object class="GtkVBox" id="vbox2">
+              <object class="GtkBox" id="vbox2">
+<property name="orientation">vertical</property>
                 <property name="can_focus">False</property>
+                <property name="orientation">vertical</property>
                 <child>
-                  <object class="GtkHButtonBox" id="buttonbox1">
+                  <object class="GtkButtonBox" id="buttonbox1">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="spacing">2</property>
@@ -347,7 +372,7 @@
                         <property name="receives_default">True</property>
                         <property name="use_alpha">True</property>
                         <property name="title" translatable="yes">Background Color</property>
-                        <property name="color">#ffffffffffff</property>
+                        <property name="rgba">rgb(255,255,255)</property>
                       </object>
                       <packing>
                         <property name="expand">False</property>
@@ -357,11 +382,11 @@
                     </child>
                     <child>
                       <object class="GtkButton" id="button_zoomin">
-                        <property name="label">gtk-zoom-in</property>
+                        <property name="label">Zoom In</property>
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="receives_default">True</property>
-                        <property name="use_stock">True</property>
+                        <property name="image">zoom-in-symbolic</property>
                       </object>
                       <packing>
                         <property name="expand">False</property>
@@ -371,11 +396,11 @@
                     </child>
                     <child>
                       <object class="GtkButton" id="button_zoom">
-                        <property name="label">gtk-zoom-100</property>
+                        <property name="label">Zoom Reset</property>
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="receives_default">True</property>
-                        <property name="use_stock">True</property>
+                        <property name="image">zoom-original-symbolic</property>
                       </object>
                       <packing>
                         <property name="expand">False</property>
@@ -385,11 +410,11 @@
                     </child>
                     <child>
                       <object class="GtkButton" id="button_zoomout">
-                        <property name="label">gtk-zoom-out</property>
+                        <property name="label">Zoom Out</property>
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="receives_default">True</property>
-                        <property name="use_stock">True</property>
+                        <property name="image">zoom-out-symbolic</property>
                       </object>
                       <packing>
                         <property name="expand">False</property>
@@ -407,8 +432,6 @@
                 <child>
                   <object class="GtkScrolledWindow" id="scrolledwindow1">
                     <property name="can_focus">True</property>
-                    <property name="hscrollbar_policy">automatic</property>
-                    <property name="vscrollbar_policy">automatic</property>
                     <child>
                       <object class="GtkViewport" id="viewport1">
                         <property name="can_focus">False</property>

@@ -32,8 +32,6 @@ extern GKeyFile * mokoiConfigTable;
 
 /* UI */
 
-const gchar * mokoiUI_MapChooser = GUI_MAP_CHOOSER;
-
 
 /********************************
 * MapObject_Type
@@ -475,7 +473,7 @@ gchar * MapChooser_Dialog( gchar * title, gchar * selected_item, gchar * additio
 	GtkWidget * dialog, * combo_maps, * image_preview, * label_title;
 
 	/* UI */
-	GtkBuilder * ui = Meg_Builder_Create(mokoiUI_MapChooser, __func__, __LINE__);
+	GtkBuilder * ui = Meg_Builder_Load("Map_Chooser", __func__, __LINE__);
 	g_return_val_if_fail( ui, FALSE );
 
 	/* Widget */

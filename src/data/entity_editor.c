@@ -36,9 +36,9 @@ extern GtkWidget * mokoiEntityTreeview;
 /* Local Variables */
 
 /* UI */
-const gchar * mokoiUI_EntityFunction = GUI_ENTITY_EDITOR_FUNCTION;
-const gchar * mokoiUI_EntityEditor = GUI_ENTITY_EDITOR;
-const gchar * mokoiUI_ErrorDialog = GUI_ERROR_DIALOG;
+
+
+
 
 /* Events */
 /********************************
@@ -361,13 +361,8 @@ void EntityEditor_Save( GtkButton * button_save, GtkWidget * textview_content )
 			/* Setup Error Widget */
 			/* > UI */
 			GError * error = NULL;
-			GtkBuilder * ui = gtk_builder_new();
-
-			if ( !gtk_builder_add_from_string(ui, mokoiUI_ErrorDialog, -1, &error) )
-			{
-				Meg_Error_Print( __func__, __LINE__, "UI creation error '%s'.", error->message );
-				return;
-			}
+			GtkBuilder * ui = Meg_Builder_Load("error_dialog", __func__, __LINE__);
+			g_return_if_fail( ui );
 			/* < UI */
 
 			dialog = GET_WIDGET( ui, "window1");
@@ -410,13 +405,8 @@ gboolean EntityEditor_InsertDialog( GtkWidget * widget, GtkWidget * view )
 	GtkTextBuffer * buffer = gtk_text_view_get_buffer( GTK_TEXT_VIEW(view) );
 
 	/* > UI */
-	GError * error = NULL;
-	GtkBuilder * ui = gtk_builder_new();
-	if ( !gtk_builder_add_from_string(ui, mokoiUI_EntityFunction, -1, &error) )
-	{
-		Meg_Error_Print( __func__, __LINE__, "UI creation error '%s'.", error->message );
-		return FALSE;
-	}
+	GtkBuilder * ui = Meg_Builder_Load("entity_editor_function", __func__, __LINE__);
+	g_return_val_if_fail( ui, FALSE );
 
 	/* < UI */
 
@@ -552,7 +542,7 @@ GtkWidget * EntityEditor_New( gchar * file )
 		GtkTreeModel * store_hierarchy;
 
 		/* UI */
-		GtkBuilder * ui = Meg_Builder_Create(mokoiUI_EntityEditor, __func__, __LINE__);
+		GtkBuilder * ui = Meg_Builder_Load("entity_editor", __func__, __LINE__);
 		g_return_val_if_fail( ui, FALSE );
 
 

@@ -32,7 +32,7 @@ extern GtkWidget * mapNotebook;
 
 /* UI */
 
-const gchar * alchera_map_edit_ui = GUI_MAP_EDIT;
+
 
 /********************************
 * Meg_MapEdit_GetMapInfo
@@ -115,7 +115,7 @@ GtkWidget * Meg_MapEdit_Open( gchar * file )
 	gdouble map_size_height = AL_Setting_GetDouble("map.height");
 
 	/* UI */
-	GtkBuilder * ui = Meg_Builder_Create( alchera_map_edit_ui, __func__, __LINE__ );
+	GtkBuilder * ui = Meg_Builder_Load( "map_edit", __func__, __LINE__ );
 	g_return_val_if_fail( ui, NULL );
 
 	/* Create MapInfo data */
@@ -257,7 +257,7 @@ GtkWidget * Meg_MapEdit_Open( gchar * file )
 
 	/* Help */
 	g_signal_connect( G_OBJECT(widget_editor), "key-release-event", G_CALLBACK(Meg_Main_HelpRequest), NULL);
-	g_object_set_data( G_OBJECT(widget_editor), "meg-help-page", g_strdup(PROGRAMSHELPDIRECTORY"/MapEditor.xml") );
+	g_object_set_data( G_OBJECT(widget_editor), "meg-help-page", g_strdup("Editor/MapEditor.xml") );
 
 	/* Combo boxes */
 	gtk_combo_box_set_active( GTK_COMBO_BOX(combo_layers), 0 );
@@ -280,11 +280,12 @@ GtkWidget * Meg_MapEdit_Open( gchar * file )
 	g_signal_connect( G_OBJECT(notebook_close), "button_press_event", G_CALLBACK(Meg_MapEdit_CloseTab), widget_editor);
 
 	/* Tab Setup */
-	Meg_Misc_SetLabel( notebook_label, "Map", file, ' ' );
+	Meg_Misc_SetLabel( notebook_label, "[Map] ", file, ' ' );
 	gtk_widget_show_all( notebook_box );
 
 	/* Append to notebook */
 	tab_page = gtk_notebook_append_page( GTK_NOTEBOOK(mapNotebook), widget_editor, notebook_box );
+	gtk_notebook_set_tab_detachable(GTK_NOTEBOOK(mapNotebook), widget_editor, TRUE);
 	gtk_widget_show_all( widget_editor );
 	g_object_ref( widget_editor );
 

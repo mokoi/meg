@@ -41,7 +41,7 @@ extern GdkRectangle Mokoi_SpriteCollision;
 
 /* UI */
 
-const gchar * mokoiUI_SpriteAdvance = GUI_SPRITE_ADVANCE;
+
 
 
 /********************************
@@ -189,7 +189,7 @@ gboolean Sprite_AdvanceDialog( Spritesheet * sheet, SheetObject * sprite )
 	GtkListStore * store_collision;
 
 	/* UI */
-	GtkBuilder * ui = Meg_Builder_Create(mokoiUI_SpriteAdvance, __func__, __LINE__);
+	GtkBuilder * ui = Meg_Builder_Load("sprite_advance", __func__, __LINE__);
 	g_return_val_if_fail( ui, FALSE );
 
 	/* Widget */

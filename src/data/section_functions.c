@@ -28,8 +28,6 @@ extern GList * mokoiWorldsList;
 
 /* UI */
 
-const gchar * mokoiUI_WorldAdd = GUI_WORLD_ADD;
-extern const gchar * mokoiUI_MapChooser;
 
 /********************************
 * Section_GetMapThumb

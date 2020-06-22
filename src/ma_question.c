@@ -29,13 +29,11 @@ GtkWidget * mokoi_questions_text = NULL;
 
 /* UI */
 
-const gchar * mokoiUI_Questions = GUI_QUESTION_PAGE;
-
 #if defined(USE_SOUP) && defined(Q2A_URL)
 
 /********************************
 * MegWidget_Questions_Create
-* Create Audio page.
+* Create Question page.
 */
 void MegWidget_Questions_Create()
 {
@@ -44,7 +42,7 @@ void MegWidget_Questions_Create()
 	GtkListStore * store_questions;
 
 	/* UI */
-	GtkBuilder * ui = Meg_Builder_Create( mokoiUI_Questions, __func__, __LINE__ );
+	GtkBuilder * ui = Meg_Builder_Load( "page_question", __func__, __LINE__ );
 
 	widget = GET_WIDGET( ui, "questions_widget" );
 	mokoi_questions_treeview = GET_WIDGET( ui, "questions_main_treeview" );

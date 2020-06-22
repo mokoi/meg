@@ -28,16 +28,6 @@ void Patch_FileChanged( GtkFileChooserButton * widget, gpointer user_data);
 void Patch_Create( gchar * file, GtkListStore * store );
 
 /* UI */
-const gchar * UIImportDialog = GUI_IMPORT_DIALOG;
-const gchar * UIProjectNew = GUI_PROJECT_NEW;
-const gchar * UIPrefDialog = GUI_PREF_DIALOG;
-const gchar * UIPatchPage = GUI_PATCH_PAGE;
-
-#ifdef CUSTOMSETTINGS
-const gchar * UIAboutWindow = GUI_ABOUT_WINDOW_CUSTOM;
-#else
-const gchar * UIAboutWindow = GUI_ABOUT_WINDOW;
-#endif
 
 /* Functions */
 
@@ -50,7 +40,7 @@ gboolean Meg_Dialog_About( )
 	GtkWidget * dialog = NULL;
 
 	/* UI */
-	GtkBuilder * ui = Meg_Builder_Create(UIAboutWindow, __func__, __LINE__);
+	GtkBuilder * ui = Meg_Builder_Load("about_window", __func__, __LINE__);
 	g_return_val_if_fail( ui, FALSE );
 
 	/* Widget */
@@ -81,7 +71,7 @@ gboolean Meg_Dialog_NewProject( )
 	GtkWidget * dialog, * entry_title, * entry_author;
 
 	/* UI */
-	GtkBuilder * ui = Meg_Builder_Create(UIProjectNew, __func__, __LINE__);
+	GtkBuilder * ui = Meg_Builder_Load("project_new", __func__, __LINE__);
 	g_return_val_if_fail( ui, FALSE );
 
 	/* Widget */
@@ -190,7 +180,7 @@ gboolean Meg_Dialog_Preference()
 	gchar * current_text_editor_path = g_key_file_get_string(meg_pref_storage, "path", "texteditor", NULL);
 
 	/* UI */
-	GtkBuilder * ui = Meg_Builder_Create(UIPrefDialog, __func__, __LINE__);
+	GtkBuilder * ui = Meg_Builder_Load("Pref_Dialog", __func__, __LINE__);
 	g_return_val_if_fail( ui, FALSE );
 
 	/* Widget */
@@ -260,7 +250,7 @@ gboolean Meg_Dialog_Import()
 	GtkWidget * dialog, * button_update, * button_close, * tree_package, * progress_action;
 
 	/* UI */
-	GtkBuilder * ui = Meg_Builder_Create(UIImportDialog, __func__, __LINE__);
+	GtkBuilder * ui = Meg_Builder_Load("Import_Dialog", __func__, __LINE__);
 	g_return_val_if_fail( ui, FALSE );
 
 	/* Widget */
@@ -305,7 +295,7 @@ gboolean Meg_Dialog_CreatePatch()
 	GtkFileFilter * filter;
 
 	/* UI */
-	GtkBuilder * ui = Meg_Builder_Create(UIPatchPage, __func__, __LINE__);
+	GtkBuilder * ui = Meg_Builder_Load("Patch_Page", __func__, __LINE__);
 	g_return_val_if_fail( ui, FALSE );
 
 	/* Widget */

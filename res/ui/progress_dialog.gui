@@ -10,7 +10,8 @@
     <property name="title" translatable="yes">Compiling Game</property>
     <property name="modal">True</property>
     <child>
-      <object class="GtkVBox" id="vbox1">
+      <object class="GtkBox" id="vbox1">
+<property name="orientation">vertical</property>
         <property name="visible">True</property>
         <property name="can_focus">False</property>
         <child>

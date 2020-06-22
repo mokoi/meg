@@ -11,7 +11,6 @@ Permission is granted to anyone to use this software for any purpose, including 
 
 /* Global Header */
 #include "global.h"
-#include <glib/gprintf.h>
 #include "widgets/cursors.h"
 #include "ma_web.h"
 #include "ma_widgets.h"
@@ -32,6 +31,7 @@ GtkWidget * alchera_main_frame = NULL;
 GtkWidget * alchera_main_toolbar = NULL;
 GtkWidget * alchera_main_statusbar = NULL;
 GtkWidget * alchera_main_textlog = NULL;
+GtkWidget * meg_main_inline_help = NULL;
 GtkWidget * meg_main_empty = NULL;
 
 /* Global Variables */
@@ -50,10 +50,10 @@ const GtkTargetEntry meg_window_drop_targets = { "text/uri-list", GTK_TARGET_OTH
 void Meg_Help_Open( gchar * file );
 gboolean Meg_Event_Drop( GtkWidget *widget, GdkDragContext *context, gint x, gint y, guint time, gpointer user_data );
 void Meg_Event_DropReceived( GtkWidget *widget, GdkDragContext *context, gint x, gint y, GtkSelectionData *data, guint ttype, guint time, gpointer user_data );
-gboolean Funclist_Scan( );
+gboolean Funclist_Scan( void );
 
 /* UI */
-const gchar * alchera_main_ui = GUI_MAIN_WINDOW;
+
 
 /********************************
 * Meg_Main_ToolbarSetActive
@@ -78,6 +78,11 @@ void Meg_Main_ToolbarToggle( GtkToggleToolButton * toolbutton, gpointer user_dat
 {
 	if ( project_file_path )
 	{
+		gchar * page = g_object_get_data( G_OBJECT(user_data), "meg-help-page" );
+		if ( page && meg_main_inline_help)
+		{
+			Meg_Help_Load( page, meg_main_inline_help );
+		}
 		if ( gtk_toggle_tool_button_get_active( GTK_TOGGLE_TOOL_BUTTON(toolbutton) ) == TRUE )
 		{
 			GList * child_list = gtk_container_get_children( GTK_CONTAINER(alchera_main_frame) );
@@ -92,7 +97,12 @@ void Meg_Main_ToolbarToggle( GtkToggleToolButton * toolbutton, gpointer user_dat
 			gtk_widget_show_all( GTK_WIDGET(user_data));
 
 			Meg_Main_ToolbarSetActive( GTK_TOGGLE_TOOL_BUTTON(toolbutton) );
+			gtk_container_check_resize(GTK_CONTAINER(alchera_main_frame));
 		}
+	} else {
+		GtkWidget * dialog = gtk_message_dialog_new( Meg_Main_GetWindow(), GTK_DIALOG_DESTROY_WITH_PARENT, GTK_MESSAGE_ERROR, GTK_BUTTONS_CLOSE, "No Project Loaded" );
+		gtk_dialog_run( GTK_DIALOG(dialog) );
+		gtk_widget_destroy(dialog);
 	}
 
 }
@@ -140,6 +150,22 @@ gboolean Meg_Main_HelpRequest( GtkWidget * widget, GdkEventKey *event, gpointer 
 {
 	if ( event->keyval == 0xFFbe )
 	{
+		GtkWidget * parent = gtk_widget_get_parent(gtk_widget_get_parent(meg_main_inline_help));
+		if (gtk_widget_is_visible(parent)) {
+			gtk_widget_set_visible(parent, FALSE);
+		} else {
+			GList * child_list = gtk_container_get_children( GTK_CONTAINER(alchera_main_frame) );
+			if ( g_list_length(child_list) )
+			{
+				GtkWidget * child = (GtkWidget *)g_list_nth_data( child_list, 0 );
+				gchar * page = g_object_get_data( G_OBJECT(child), "meg-help-page" );
+				if ( page )	{
+					Meg_Help_Load( page, meg_main_inline_help );
+					gtk_widget_set_visible(parent, TRUE);
+				}
+			}
+		}
+	/*
 		GtkWidget * child = NULL;
 		GList * child_list = gtk_container_get_children( GTK_CONTAINER(alchera_main_frame) );
 		if ( g_list_length(child_list) )
@@ -151,6 +177,7 @@ gboolean Meg_Main_HelpRequest( GtkWidget * widget, GdkEventKey *event, gpointer 
 				Meg_Help_Open( page );
 			}
 		}
+		*/
 	}
 	return FALSE;
 }
@@ -190,18 +217,16 @@ gboolean Meg_Main_Init()
 {
 	GTimer * yimer = g_timer_new();
 	g_timer_start(yimer);
-	GError * error = NULL;
 
 //	GtkWidget *area_player, * button_playgame, * button_pause, * button_refresh;
 
 	GtkAccelGroup * accel_group = NULL;
 
-	GtkBuilder * ui = gtk_builder_new();
-	if ( !gtk_builder_add_from_string(ui, alchera_main_ui, -1, &error) )
-	{
-		Meg_Error_Print( __func__, __LINE__, "UI creation error: %s", error->message );
-		return FALSE;
-	}
+
+	GtkBuilder * ui = Meg_Builder_Load("main_window", __func__, __LINE__);
+	g_return_val_if_fail( ui, FALSE );
+
+
 
 	alchera_main_window = GET_WIDGET(ui, "alchera_main_window");
 	alchera_main_frame = GET_WIDGET(ui, "alchera_main_frame");
@@ -209,8 +234,8 @@ gboolean Meg_Main_Init()
 	alchera_main_statusbar = GET_WIDGET(ui, "alchera_main_statusbar");
 	alchera_main_textlog = GET_WIDGET(ui, "alchera_main_textlog");
 	meg_main_empty = GET_WIDGET(ui, "meg_empty_label");
-
-	player_info.widget = GET_WIDGET( ui, "area_player" );
+	meg_main_inline_help = GET_WIDGET(ui, "meg_main_inline_help");
+	//player_info.widget = GET_WIDGET( ui, "area_player" );
 
 //	button_playgame = GET_WIDGET( ui, "button_play" );
 //	button_pause = GET_WIDGET( ui, "button_pause" );
@@ -275,7 +300,7 @@ gboolean Meg_Main_Init()
 
 	/* Tab pages */
 	MegWidget_Player_Create();
-	Meg_Main_AddSection( GET_WIDGET(ui, "scrolledwindow3"), "Log", PAGE_ICON_LOG );
+	Meg_Main_AddSection( GET_WIDGET(ui, "meg_logging_page"), "Log", PAGE_ICON_LOG );
 	MegWidget_Questions_Create();
 	MegWidget_Help_Create();
 	MegWidget_EntityList_Create();
@@ -311,7 +336,7 @@ gboolean Meg_Main_Init()
  * @param section_icon
  * @return
  */
-GtkWidget * Meg_Main_AddSection( GtkWidget * section_widget, gchar * section_title, gchar * section_icon )
+GtkWidget * Meg_Main_AddSection(GtkWidget * section_widget, gchar * section_title, gchar * section_icon)
 {
 	GtkToolItem * toolbutton = NULL;
 	GtkWidget * icon_widget = NULL;

@@ -27,17 +27,14 @@ Permission is granted to anyone to use this software for any purpose, including 
 #endif
 
 
-#if PAWN_VERSION == 4
 #define PAWN_COMPILER "pawn_compiler4"
-#else
-#define PAWN_COMPILER "pawn_compiler3"
-#endif
+
 
 typedef struct {
 	gchar * filename;
 	GtkWidget * log;
 	GtkWidget * text;
-	gboolean error;
+	gint error;
 } EntityErrorInfo;
 
 /* External Functions */
@@ -61,7 +58,7 @@ static GMarkupParser entity_error_parser = {
 
 /* UI */
 
-const gchar * mokoiUI_EntityRebuild = GUI_PROGRESS_DIALOG;
+
 
 /* Events */
 
@@ -270,7 +267,7 @@ gchar * EntityCompiler_PawnScript( gchar * input_file, gchar * temporary_filepat
 	GError * err = NULL;
 	gint exit_status;
 
-	gchar * entity_file = NULL, * compiled_entity_file = NULL;
+
 	gchar * working_directory = NULL;
 	gchar * full_output_directory = NULL;
 
@@ -317,6 +314,18 @@ gchar * EntityCompiler_PawnScript( gchar * input_file, gchar * temporary_filepat
 		output = g_strdup_printf("<results><fatalerror message=\"Possible Compiler Crash.\" file=\"%s\" /></results>", args[0] );
 	}
 
+
+	/* Check if compiler left an empty file */
+//	gchar * entity_file = NULL, * compiled_entity_file = NULL;
+//	entity_file = g_build_filename( AL_ProjectPath(), "c", input_file, NULL);
+//	compiled_entity_file = Meg_String_ReplaceFileExtension( entity_file, ".mps", ".amx" );
+//	if ( file_get_size( compiled_entity_file ) == 0 )
+//	{
+//		//g_unlink(compiled_entity_file);
+//	}
+//	g_free(compiled_entity_file);
+//	g_free(entity_file);
+
 	g_free(full_output_directory);
 
 	g_free(args[0]);
@@ -324,17 +333,6 @@ gchar * EntityCompiler_PawnScript( gchar * input_file, gchar * temporary_filepat
 	g_free(args[2]);
 	g_free(args[3]);
 	g_free(args[4]);
-
-	/* Check if compiler left an empty file */
-	entity_file = g_build_filename( AL_ProjectPath(), "c", input_file, NULL);
-	compiled_entity_file = Meg_String_ReplaceFileExtension( entity_file, ".mps", ".amx" );
-	if ( file_get_size( compiled_entity_file ) == 0 )
-	{
-		g_unlink(compiled_entity_file);
-	}
-	g_free(compiled_entity_file);
-	g_free(entity_file);
-
 
 
 	return output;

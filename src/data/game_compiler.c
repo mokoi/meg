@@ -46,7 +46,7 @@ gboolean mokoiCompileError = FALSE;
 
 /* UI */
 
-const gchar * mokoiUI_CompileCreate = GUI_COMPILECREATE_DIALOG;
+
 
 
 typedef enum GameCompiler_Distro
@@ -305,7 +305,7 @@ gboolean MegProject_Compile()
 	package_name = AL_Setting_GetString("package.main");
 
 	/* UI */
-	GtkBuilder * ui = Meg_Builder_Create(mokoiUI_CompileCreate, __func__, __LINE__);
+	GtkBuilder * ui = Meg_Builder_Load("Compile_Create", __func__, __LINE__);
 	g_return_val_if_fail( ui, FALSE );
 
 	/* Widget */

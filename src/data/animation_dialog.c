@@ -29,7 +29,7 @@ extern GSList * mokoiSpritesheets;
 
 /* UI */
 
-const gchar * mokoiUI_AnimationAdvance = GUI_ANIMATION_ADVANCE;
+
 
 
 /********************************
@@ -56,7 +56,7 @@ gboolean Animation_AdvanceDialog( Spritesheet * sheet, SheetObject * sprite )
 	GObject * spin_frame_x, * spin_frame_y, * spin_frame_time;
 
 	/* UI */
-	GtkBuilder * ui = Meg_Builder_Create(mokoiUI_AnimationAdvance, __func__, __LINE__);
+	GtkBuilder * ui = Meg_Builder_Load("Animation_Advance", __func__, __LINE__);
 	g_return_val_if_fail( ui, FALSE );
 
 	/* Widget */

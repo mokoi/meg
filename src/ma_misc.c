@@ -14,6 +14,7 @@ Permission is granted to anyone to use this software for any purpose, including 
 #include "global.h"
 #include <glib/gstdio.h>
 #include "physfs/physfs.h"
+#include <stdint.h>
 
 /* Global Variables */
 extern GKeyFile * meg_pref_storage;
@@ -25,11 +26,24 @@ cairo_font_face_t * megBitFont = NULL;
 cairo_status_t meg_bit_font_face_create(cairo_font_face_t **out);
 
 /* UI */
+#include "ui_resources.h"
 
+
+GtkWidget * Meg_Builder_Get_Widget( GtkBuilder *builder, const gchar *name, const char * function, gint line ) {
+	GObject * object;
+
+	object = gtk_builder_get_object(builder, name);
+
+	if ( object == NULL ) {
+		Meg_Error_Print( function, line, "Widget '%s' not found.", name );
+	}
+
+	return GTK_WIDGET(object);
+}
 
 
 /********************************
-* Meg_Builder_Create
+* Meg_Builder_Load
 *
 *
 */
@@ -46,6 +60,53 @@ GtkBuilder * Meg_Builder_Create( const gchar * text, const char * funcname, gint
 	return ui;
 }
 
+size_t Meg_UI_Index( const gchar * name ) {
+	size_t array_size = (sizeof(ui_resources) / sizeof(ui_resources[0]));
+	for (size_t index = 0; index < array_size; index +=2 ) {
+		if ( g_str_equal(name, ui_resources[index]) ) {
+			return index + 1;
+		}
+	}
+	return SIZE_MAX;
+}
+
+/********************************
+* Meg_Builder_Load
+*
+*
+*/
+GtkBuilder * Meg_Builder_Load( const gchar * name, const char * funcname, gint line )
+{
+	GError * error = NULL;
+	GtkBuilder * ui = gtk_builder_new();
+
+	size_t index = Meg_UI_Index(name);
+	if ( index == SIZE_MAX ) {
+		return NULL;
+	}
+	#ifdef DEBUG
+	gchar * filename = g_strconcat(name, ".gui", NULL);
+	gchar * uipath = g_build_filename(Meg_Directory(), "..", "res", "ui", filename, NULL);
+
+	gtk_builder_add_from_file(ui, uipath, NULL);
+
+	g_free(filename);
+	g_free(uipath);
+	if ( ui )
+	{
+		g_print("Loading ui '%s' from file \n", name);
+		return ui;
+	}
+	#endif
+
+	if ( !gtk_builder_add_from_string(ui, ui_resources[index], -1, &error) )
+	{
+		Meg_Error_Print( funcname, line, "UI creation error '%s'.", error->message );
+		g_object_unref(ui);
+		return NULL;
+	}
+	return ui;
+}
 
 
 
@@ -571,14 +632,8 @@ void CellRender_Event_FixToggled( GtkCellRendererToggle *cell, gchar * path_str,
 */
 void ToggleButton_Event_WidgetSensitive( GtkToggleButton * button, GtkWidget * widget )
 {
-	if ( gtk_toggle_button_get_active(button) )
-	{
-		gtk_widget_set_sensitive(widget, TRUE);
-	}
-	else
-	{
-		gtk_widget_set_sensitive(widget, FALSE);
-	}
+	gtk_widget_set_sensitive(widget, gtk_toggle_button_get_active(button));
+
 }
 
 

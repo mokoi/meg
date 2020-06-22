@@ -1,20 +1,22 @@
+MKDIR=mkdir.cmd
+MAKE=mingw32-make
+
 ifeq ($(SUPPORTPATH), )
 $(error Please set SUPPORTPATH variable before running make.   )
 endif
 
 ifeq ($(GTKVERSION), 3)
-$(warning GTK3 for windows not recommend. )
 	USEGTKSOURCEVIEW=FALSE
 	USESOUP=FALSE
-	USECURL=TRUE
-	OBJDIR+=-gtk3
+	USECURL=FALSE
 else
+$(warning Version of GTK for windows is not recommend. )
 	USEGTKSOURCEVIEW=TRUE
 	USESOUP=FALSE
-	USECURL=TRUE
+	USECURL=FALSE
 endif
 
-PLATFORM = __GNUWIN32__
+PLATFORM = PLATFORM_WINDOWS
 PLATFORM_LIBS = -Wl,--enable-auto-import -L"$(SUPPORTPATH)/lib" -limm32 -lshell32 -lole32 -luuid  -lintl
 PLATFORM_LIBS += -lcairo.dll -lpangowin32-1.0.dll -latk-1.0.dll -lgdk_pixbuf-2.0.dll  -lglib-2.0.dll -lgmodule-2.0.dll
 PLATFORM_LIBS += -lgobject-2.0.dll -lgthread-2.0.dll -lpango-1.0.dll -lgio-2.0.dll
@@ -65,18 +67,7 @@ else
 	PLATFORM_LIBS += -mwindows
 endif
 
-
-$(RES): $(RES_SOURCE)
-	@windres -i $(RES_SOURCE) --input-format=rc -o $(RES) -O coff  -F $(RES_OUTPUT)
+%.res: src/%.rc	@windres -i $< --input-format=rc -o $@ -O coff  -F $(RES_OUTPUT)
 
 
-#used for builderheader
-MINI_PLATFORM_LIBS = -L"$(SUPPORTPATH)/lib" -lwinmm -limm32 -lshell32 -lole32 -luuid  -lintl -lglib-2.0.dll -lgmodule-2.0.dll -lgobject-2.0.dll -lgthread-2.0.dll -mconsole -s
-MINI_PLATFORM_FLAGS = -I"$(SUPPORTPATH)/include" -I"$(SUPPORTPATH)/include/glib-2.0" -I"$(SUPPORTPATH)/lib/glib-2.0/include" -D_CRT_SECURE_NO_WARNINGS
-ifeq ($(PLATFORMBITS), 64)
-	MINI_PLATFORM_LIBS += -m64
-	MINI_PLATFORM_FLAGS += -m64
-else
-	MINI_PLATFORM_FLAGS += -m32
-	MINI_PLATFORM_LIBS += -m32
-endif
+

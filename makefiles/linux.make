@@ -64,8 +64,8 @@ $(info Gtk Version $(GTKVERSION))
 endif
 
 
-installdeps-gtk2:
-	apt-get install libgtk2.0-dev libgtksourceview-2.0-dev libcurl-dev
+#installdeps-gtk2:
+#	apt-get install libgtk2.0-dev libgtksourceview-2.0-dev libcurl-dev
 
-installdeps-gtk3:
-	apt-get install libgtk-3-dev libgtksourceview-3.0-dev libcurl-dev
+#installdeps-gtk3:
+#	apt-get install libgtk-3-dev libgtksourceview-3.0-dev libcurl-dev

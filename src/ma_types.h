@@ -1,5 +1,5 @@
-#ifndef _ALCHERA_TYPES_H_
-#define _ALCHERA_TYPES_H_
+#ifndef ALCHERA_TYPES_H
+#define ALCHERA_TYPES_H
 
 #include <gtk/gtk.h>
 #include <glib.h>
@@ -9,16 +9,19 @@
 extern "C" {
 #endif /* __cplusplus */
 
-#define GET_WIDGET(b,n)	GTK_WIDGET( gtk_builder_get_object( (b), (n) ) )
+
+//#define GET_WIDGET(b,n)	GTK_WIDGET( gtk_builder_get_object( (b), (n) ) )
+#define GET_WIDGET(b,n)	Meg_Builder_Get_Widget( (b), (n), (__func__), (__LINE__) )
+
 #define GET_LISTSTORE(b,n)	GTK_LIST_STORE( gtk_builder_get_object( (b), (n) ) )
 #define GET_LABEL_WIDGET(b,n)	GTK_LABEL( gtk_builder_get_object( (b), (n) ) )
 #define GET_SPIN_WIDGET(b,n)	GTK_SPIN_BUTTON( gtk_builder_get_object( (b), (n) ) )
 
-#define SET_OBJECT_SIGNAL(b,n,e,c,d)	g_signal_connect( gtk_builder_get_object( (b), (n) ), (e), (c), (d));
-#define SET_OBJECT_SIGNAL_SWAP(b,n,e,c,d)	g_signal_connect_swapped( gtk_builder_get_object( (b), (n) ), (e), (c), (d));
-#define SET_MENU_SIGNAL(b,n,c)	g_signal_connect( gtk_builder_get_object( (b), (n) ), "activate", (c), NULL);
+#define SET_OBJECT_SIGNAL(b,n,e,c,d)	g_signal_connect( gtk_builder_get_object( (b), (n) ), (e), (c), (d))
+#define SET_OBJECT_SIGNAL_SWAP(b,n,e,c,d)	g_signal_connect_swapped( gtk_builder_get_object( (b), (n) ), (e), (c), (d))
+#define SET_MENU_SIGNAL(b,n,c)	g_signal_connect( gtk_builder_get_object( (b), (n) ), "activate", (c), NULL)
 
-#define STRIP_FILE_EXTENSION(t,n)	g_strndup(t, g_utf8_strlen(t, -1) - n );
+#define STRIP_FILE_EXTENSION(t,n)	g_strndup(t, g_utf8_strlen(t, -1) - n )
 #define REPLACE_STRING(s,v)	g_free( s ); s = v;
 #define REPLACE_STRING_DUPE(s,v)	g_free( s ); if (v) { s = g_strdup(v); } else { s = NULL; }
 #define CLEAR_STRING(s)	if (s) { g_free( s ); s = NULL; }

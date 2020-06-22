@@ -11,6 +11,7 @@ Permission is granted to anyone to use this software for any purpose, including 
 
 #ifndef MA_MAP_EDIT
 #define MA_MAP_EDIT
+#include "global.h"
 
 gboolean Meg_MapEdit_CloseTab( GtkWidget * event_box, GdkEvent * event, GtkWidget * widget );
 gboolean Meg_MapEdit_KeyPress( GtkWidget * widget, GdkEventKey * event, GtkComboBox * layers );

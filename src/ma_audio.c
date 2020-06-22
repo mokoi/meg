@@ -32,7 +32,7 @@ GtkWidget * alchera_audio_treeview = NULL;
 
 /* UI */
 
-const gchar * mokoiUI_Audio = GUI_PAGE_AUDIO;
+
 
 
 /********************************
@@ -44,18 +44,11 @@ void MegWidget_Audio_Create()
 	GtkWidget * widget;
 
 	/* UI */
-	GError * error = NULL;
-	GtkBuilder * ui = gtk_builder_new();
-	if ( !gtk_builder_add_from_string(ui, mokoiUI_Audio, -1, &error) )
-	{
-		Meg_Error_Print( __func__, __LINE__, "UI creation error '%s'.", error->message );
-		return;
-	}
+	GtkBuilder * ui = Meg_Builder_Load("page_audio", __func__, __LINE__);
+	g_return_if_fail( ui );
 
 	widget = GET_WIDGET( ui, "meg_audio_widget" );
 	alchera_audio_treeview = GET_WIDGET( ui, "meg_audio_main_treeview" );
-
-
 
 	/* Signals */
 	g_signal_connect( widget, "realize", G_CALLBACK(MegWidget_Audio_Refresh), alchera_audio_treeview );
@@ -69,9 +62,7 @@ void MegWidget_Audio_Create()
 	Audio_Payback_Register();
 
 	/* Help support */
-	GtkWidget *help_text = GET_WIDGET( ui, "meg_audio_help" );
-	Meg_Help_Load(PROGRAMSHELPDIRECTORY"/Audio.xml", help_text);
-	g_object_set_data( G_OBJECT(widget), "meg-help-page", g_strdup(PROGRAMSHELPDIRECTORY"/Audio.xml") ); //Set the help page
+	g_object_set_data( G_OBJECT(widget), "meg-help-page", g_strdup("Editor/Audio.xml") ); //Set the help page
 
 	Meg_Main_AddSection( widget, "Audio", PAGE_ICON_AUDIO );
 

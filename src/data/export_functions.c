@@ -28,7 +28,7 @@ extern gchar * mokoiGameDirectories[];
 
 /* UI */
 
-const gchar * mokoiUI_Export = GUI_EXPORT_DIALOG;
+
 
 
 /* Functions */
@@ -305,7 +305,7 @@ gboolean Meg_Dialog_Export()
 	GObject * tree_filelisting = NULL;
 
 	/* UI */
-	GtkBuilder * ui = Meg_Builder_Create(mokoiUI_Export, __func__, __LINE__);
+	GtkBuilder * ui = Meg_Builder_Load("export_dialog", __func__, __LINE__);
 	g_return_val_if_fail( ui, FALSE );
 
 

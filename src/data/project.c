@@ -37,7 +37,6 @@ extern gchar * mokoiGameDirectories[];
 extern ProgressDialogWidgets mokoiGameComplier;
 
 /* UI */
-const gchar * mokoiUI_Publish = GUI_PROJECT_PUBLISH;
 
 
 /********************************
@@ -211,13 +210,7 @@ void Project_Publish( GtkButton *button, gpointer user_data)
 	GtkWidget * dialog;
 
 	/* UI */
-	GError * error = NULL;
-	GtkBuilder * ui = gtk_builder_new();
-	if ( !gtk_builder_add_from_string(ui, mokoiUI_Publish, -1, &error) )
-	{
-		Meg_Error_Print( __func__, __LINE__, "UI creation error '%s'.", error->message );
-		return;
-	}
+	GtkBuilder * ui = Meg_Builder_Load("project_publish", __func__, __LINE__);
 	gtk_builder_connect_signals( ui, NULL );
 
 	dialog = GET_WIDGET( ui, "publish_dialog" );

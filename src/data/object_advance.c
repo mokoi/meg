@@ -27,11 +27,7 @@ extern gchar * mokoiBasePath;
 
 
 /* UI */
-const gchar * mokoiUI_ObjectEntites = GUI_OBJECT_ENTITY;
-const gchar * mokoiUI_ObjectShape = GUI_OBJECT_SHAPE;
-const gchar * mokoiUI_ObjectSprite = GUI_OBJECT_SPRITE;
-const gchar * mokoiUI_ObjectText = GUI_OBJECT_TEXT;
-const gchar * mokoiUI_ObjectLine = GUI_OBJECT_LINE;
+
 
 
 /********************************
@@ -154,8 +150,8 @@ GtkWidget * ObjectAdvance_EntityWidget_New( DisplayObject * object )
 	MapObjectData * object_data = MAP_OBJECT_DATA(object);
 
 	/* UI */
-	GtkBuilder * ui = Meg_Builder_Create( mokoiUI_ObjectEntites, __func__, __LINE__ );
-	g_return_val_if_fail( ui, FALSE );
+	GtkBuilder * ui = Meg_Builder_Load( "object_entites", __func__, __LINE__ );
+	g_return_val_if_fail( ui, NULL );
 
 	/* Widget */
 	GtkWidget * entity_widget;
@@ -318,7 +314,7 @@ gboolean ObjectAdvance_Shape( DisplayObject * object, GtkWindow * window )
 	/* UI */
 	GtkWidget * dialog, * label, * button_colour, * entity_parent;
 	GtkSpinButton * spin_x, * spin_y, * spin_z, * spin_w, * spin_h;
-	GtkBuilder * ui = Meg_Builder_Create( mokoiUI_ObjectShape,  __func__, __LINE__ );
+	GtkBuilder * ui = Meg_Builder_Load( "Object_Shape",  __func__, __LINE__ );
 
 	/* Widgets */
 	dialog = GET_WIDGET( ui, "object_advance");
@@ -410,7 +406,7 @@ gboolean ObjectAdvance_Sprite( DisplayObject * object, GtkWindow * window )
 	/* UI */
 	GtkWidget * dialog, * label, * entity_parent, * check_mirror, * button_colour;
 	GtkSpinButton * spin_rot, * spin_x, * spin_y, * spin_z, * spin_w, * spin_h;
-	GtkBuilder * ui = Meg_Builder_Create( mokoiUI_ObjectSprite, __func__, __LINE__ );
+	GtkBuilder * ui = Meg_Builder_Load( "Object_Sprite", __func__, __LINE__ );
 
 	/* Widgets */
 	dialog = GET_WIDGET( ui, "object_advance");
@@ -512,7 +508,7 @@ gboolean ObjectAdvance_Line( DisplayObject * object, GtkWindow * window )
 	/* UI */
 	GtkWidget * dialog, * label, * button_colour, * entity_parent;
 	GtkSpinButton * spin_x, * spin_y, * spin_z, * spin_w, * spin_h;
-	GtkBuilder * ui = Meg_Builder_Create( mokoiUI_ObjectLine,  __func__, __LINE__ );
+	GtkBuilder * ui = Meg_Builder_Load( "Object_Line",  __func__, __LINE__ );
 
 	dialog = GET_WIDGET( ui, "object_advance");
 	label = GET_WIDGET( ui, "alchera-label");
@@ -609,7 +605,7 @@ gboolean ObjectAdvance_Text( DisplayObject * object, GtkWindow * window )
 	GtkWidget * dialog, * edit_text, * label;
 	GtkWidget * button_colour, * entity_parent;
 	GtkSpinButton * spin_string, * spin_x, * spin_y, * spin_z;
-	GtkBuilder * ui = Meg_Builder_Create( mokoiUI_ObjectText, __func__, __LINE__ );
+	GtkBuilder * ui = Meg_Builder_Load( "Object_Text", __func__, __LINE__ );
 
 	dialog = GET_WIDGET( ui, "object_advance");
 	label = GET_WIDGET( ui, "alchera-label");

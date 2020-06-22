@@ -1,14 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- Generated with glade 3.36.0 -->
 <interface>
-  <object class="GtkHButtonBox" id="box1">
+  <requires lib="gtk+" version="3.8"/>
+  <object class="GtkImage" id="image1">
+    <property name="visible">True</property>
     <property name="can_focus">False</property>
+    <property name="icon_name">gtk-stock-play</property>
+    <property name="use_fallback">True</property>
+  </object>
+  <object class="GtkButtonBox" id="box1">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="spacing">4</property>
+    <property name="layout_style">start</property>
     <child>
       <object class="GtkCheckButton" id="music">
         <property name="label" translatable="yes">Treat as Music</property>
-        <property name="use_action_appearance">False</property>
         <property name="can_focus">True</property>
         <property name="receives_default">False</property>
-        <property name="use_action_appearance">False</property>
         <property name="draw_indicator">True</property>
       </object>
       <packing>
@@ -19,12 +28,10 @@
     </child>
     <child>
       <object class="GtkButton" id="play">
-        <property name="label">gtk-media-play</property>
-        <property name="use_action_appearance">False</property>
+        <property name="label" translatable="yes">Play</property>
         <property name="can_focus">True</property>
         <property name="receives_default">True</property>
-        <property name="use_action_appearance">False</property>
-        <property name="use_stock">True</property>
+        <property name="image">image1</property>
       </object>
       <packing>
         <property name="expand">False</property>

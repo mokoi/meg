@@ -34,13 +34,13 @@
       <column type="gchararray"/>
     </columns>
   </object>
-  <object class="GtkVBox" id="meg_entitylist_widget">
+  <object class="GtkBox" id="meg_entitylist_widget">
     <property name="can_focus">False</property>
     <child>
       <object class="GtkEventBox" id="alchera-title">
         <property name="can_focus">False</property>
         <child>
-          <object class="GtkHBox" id="hbox6">
+          <object class="GtkBox" id="hbox6">
             <property name="can_focus">False</property>
             <child>
               <object class="GtkImage" id="image9">
@@ -83,7 +83,8 @@
         <property name="visible">True</property>
         <property name="can_focus">True</property>
         <child>
-          <object class="GtkVBox" id="vbox1">
+          <object class="GtkBox" id="vbox1">
+<property name="orientation">vertical</property>
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <child>
@@ -98,7 +99,8 @@
                     <property name="can_focus">False</property>
                     <property name="label_xalign">0</property>
                     <child>
-                      <object class="GtkVBox" id="vbox2">
+                      <object class="GtkBox" id="vbox2">
+<property name="orientation">vertical</property>
                         <property name="can_focus">False</property>
                         <property name="spacing">1</property>
                         <child>
@@ -201,7 +203,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkHButtonBox" id="hbuttonbox1">
+              <object class="GtkButtonBox" id="hbuttonbox1">
                 <property name="can_focus">False</property>
                 <property name="layout_style">end</property>
                 <child>

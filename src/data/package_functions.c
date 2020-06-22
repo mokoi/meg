@@ -45,8 +45,6 @@ typedef struct {
 } PackageWatch;
 
 /* UI */
-const gchar * uiPackageFiles = GUI_PACKAGE_FILES;
-const gchar * uiPackageQuestion = GUI_PACKAGE_QUESTION;
 
 /**
  * @brief Package_ExtractFile
@@ -218,7 +216,7 @@ GSList * Package_FileSelectionDialog( const gchar * file, GtkWidget * widget  )
 	file_list = Package_FileList( file );
 
 	/* UI */
-	GtkBuilder * ui = Meg_Builder_Create( uiPackageFiles, __func__, __LINE__ );
+	GtkBuilder * ui = Meg_Builder_Load( "package_files", __func__, __LINE__ );
 	g_return_val_if_fail( ui, NULL );
 
 	/* Widgets */
@@ -541,7 +539,7 @@ gboolean Package_ImportInital(const gchar * file, const gchar * root_dir )
 	gchar * package_path;
 	GtkDialog * dialog;
 
-	GtkBuilder * ui = Meg_Builder_Create(uiPackageQuestion, __func__, __LINE__);
+	GtkBuilder * ui = Meg_Builder_Load("package_question", __func__, __LINE__);
 
 	Meg_Log_Print( LOG_NONE, "Installing Base System: '%s'", file);
 

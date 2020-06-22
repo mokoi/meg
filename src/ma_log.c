@@ -14,8 +14,8 @@ Permission is granted to anyone to use this software for any purpose, including 
 #include <glib/gstdio.h>
 
 /* Local Variables */
-GtkTextTag * log_bold, * log_error, * log_fine;
-GtkTextBuffer * log_buffer = NULL;
+static GtkTextTag * log_bold, * log_error, * log_fine;
+static GtkTextBuffer * log_buffer = NULL;
 
 /********************************
 * Meg_Log_SetBuffer
@@ -114,7 +114,7 @@ void Meg_Error_Print( const gchar * function, gint line, const gchar * format, .
 
 	Meg_Log_Append( LOG_ERROR, log );
 
-	dialog = gtk_message_dialog_new( Meg_Main_GetWindow(), GTK_DIALOG_DESTROY_WITH_PARENT, GTK_MESSAGE_ERROR, GTK_BUTTONS_CLOSE, "%s", log );
+	dialog = gtk_message_dialog_new( Meg_Main_GetWindow(), GTK_DIALOG_DESTROY_WITH_PARENT, GTK_MESSAGE_ERROR, GTK_BUTTONS_CLOSE, "File:%s Line:%d\n%s", function, line, log );
 	gtk_window_set_transient_for(GTK_WINDOW(dialog), Meg_Main_GetWindow());
 	gtk_dialog_run( GTK_DIALOG(dialog) );
 

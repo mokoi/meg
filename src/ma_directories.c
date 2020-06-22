@@ -9,8 +9,6 @@ Permission is granted to anyone to use this software for any purpose, including 
 3. This notice may not be removed or altered from any source distribution.
 ****************************/
 
-
-
 /* Global Header */
 #include "global.h"
 
@@ -28,6 +26,9 @@ gchar * program_directory = NULL;
 /* UI */
 
 /* Functions */
+
+
+
 
 
 /********************
@@ -63,6 +64,8 @@ gchar * Meg_Directory_Data( const gchar * folder )
 	g_mkdir_with_parents(path, 0755);
 	return path;
 }
+
+
 
 /********************
 * Meg_Directory_DataFile

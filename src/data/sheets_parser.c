@@ -52,7 +52,7 @@ static gchar * mokoiChildPositionStrings[] = {
 
 /* UI */
 
-const gchar * mokoiUI_SheetCreate = GUI_SHEET_CREATE;
+
 
 
 
@@ -70,7 +70,7 @@ void Sheet_Create( GdkPixbuf * image, gchar * imagefile )
 	/* UI */
 	GError * error = NULL;
 	GtkBuilder * ui = gtk_builder_new();
-	if ( !gtk_builder_add_from_string(ui, mokoiUI_SheetCreate, -1, &error) )
+	if ( !gtk_builder_add_from_string(ui, "Sheet_Create", -1, &error) )
 	{
 		Meg_Error_Print( __func__, __LINE__, "UI creation error '%s'.", error->message );
 		return;

@@ -608,7 +608,7 @@ void EntitySettings_Target_Dialog( GtkWidget *button, EntitySettingsStruct * opt
 	g_return_if_fail( option );
 
 	/* UI */
-	GtkBuilder * ui = Meg_Builder_Create(GUI_ENTITY_TARGET_DIALOG, __func__, __LINE__);
+	GtkBuilder * ui = Meg_Builder_Load("entity_target_dialog", __func__, __LINE__);
 	g_return_if_fail( ui );
 
 	/* Widget */

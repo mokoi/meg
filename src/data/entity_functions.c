@@ -42,7 +42,7 @@ extern GtkWidget * mokoiEntityMainLabel;
 gchar * mokoiScriptBlankEntity = "/* Init function is the call before anything else */\npublic Init(...)\n{\n\t\n}\n\n/* Close function when it is deleted' */\npublic Close()\n{\n\t\n}\n\nmain()\n{\n\t\n}\n";
 
 /* UI */
-const gchar * mokoiUI_EntityAdd = GUI_ENTITY_ADD;
+
 
 
 /********************************
@@ -69,7 +69,7 @@ gboolean Entity_Add()
 	gboolean return_value = FALSE;
 
 	/* UI */
-	GtkBuilder * ui = Meg_Builder_Create(mokoiUI_EntityAdd, __func__, __LINE__);
+	GtkBuilder * ui = Meg_Builder_Load("Entity_Add", __func__, __LINE__);
 	g_return_val_if_fail( ui, FALSE );
 
 	/* Widget */

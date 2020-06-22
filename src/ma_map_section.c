@@ -32,8 +32,6 @@ gboolean Meg_MapSection_CloseTab( GtkWidget *event_box, GdkEventButton *event, G
 
 /* UI */
 
-const gchar * alchera_map_overview_ui = GUI_MAP_SECTION;
-
 
 /********************************
 * Meg_MapSection_New
@@ -43,13 +41,9 @@ GtkWidget * Meg_MapSection_Open( gchar * file )
 {
 	GtkWidget * widget_overview, * label_text, * display_overview;
 
-	GError * error = NULL;
-	GtkBuilder * ui = gtk_builder_new();
-	if ( !gtk_builder_add_from_string( ui, alchera_map_overview_ui, -1, &error ) )
-	{
-		Meg_Error_Print( __func__, __LINE__, "UI creation error: %s", error->message );
-		return NULL;
-	}
+	GtkBuilder * ui = Meg_Builder_Load("map_section", __func__, __LINE__);
+	g_return_val_if_fail( ui, NULL );
+
 
 	widget_overview = GET_WIDGET( ui, "overview" );
 	label_text = GET_WIDGET( ui, "alchera-label");
@@ -57,7 +51,7 @@ GtkWidget * Meg_MapSection_Open( gchar * file )
 
 	/* Tab Settings */
 	g_signal_connect( G_OBJECT(widget_overview), "key-release-event", G_CALLBACK(Meg_Main_HelpRequest), NULL);
-	g_object_set_data( G_OBJECT(widget_overview), "meg-help-page", g_strdup(PROGRAMSHELPDIRECTORY"/Worlds.xml") );
+	g_object_set_data( G_OBJECT(widget_overview), "meg-help-page", g_strdup("Editor/Worlds.xml") );
 	g_object_ref( widget_overview );
 
 	/* Set names */

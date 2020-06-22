@@ -24,11 +24,9 @@ extern gchar * project_file_path;
 void MegWidget_Project_EditSetting( GtkCellRendererText *cellrenderertext, gchar *path_string, gchar *new_text, gpointer user_data );
 void Project_Publish( GtkButton *button, gpointer user_data);
 void MegWidget_Project_Refresh( GtkWidget * widget, gpointer user_data );
-void AL_Settings_RefreshAdvance(  );
+void AL_Settings_RefreshAdvance( void );
 
 /* UI */
-
-const gchar * alchera_project_ui = GUI_PAGE_PROJECT;
 
 
 /********************************
@@ -37,19 +35,15 @@ const gchar * alchera_project_ui = GUI_PAGE_PROJECT;
 */
 void MegWidget_Project_Create()
 {
-	GError * error = NULL;
-
 	GtkWidget * widget;
 	GtkListStore * advance = NULL;
-	GtkBuilder * ui = gtk_builder_new();
-	if ( !gtk_builder_add_from_string( ui, alchera_project_ui, -1, &error ) )
-	{
-		Meg_Error_Print( __func__, __LINE__, "UI creation error: '%s'", error->message );
-		return;
-	}
+
+	GtkBuilder * ui = Meg_Builder_Load("page_project", __func__, __LINE__);
+	g_return_if_fail( ui );
+
 
 	widget = GET_WIDGET( ui, "alchera_project_widget");
-	meg_project_title = GET_WIDGET( ui, "alchera-label");
+
 	meg_project_path = GET_WIDGET( ui, "project_path");
 	advance = GET_LISTSTORE( ui, "meg_settings_advance_store" ); /* G_TYPE_STRING, G_TYPE_STRING, G_TYPE_BOOLEAN */
 
@@ -66,7 +60,7 @@ void MegWidget_Project_Create()
 	AL_Setting_Widget( ui );
 
 	/* tab settings */
-	g_object_set_data( G_OBJECT(widget), "meg-help-page", g_strdup(PROGRAMSHELPDIRECTORY"/Project.xml") );
+	g_object_set_data( G_OBJECT(widget), "meg-help-page", g_strdup("Editor/Project.xml") );
 	Meg_Main_AddSection( widget, "Settings", PAGE_ICON_PROJECT );
 }
 

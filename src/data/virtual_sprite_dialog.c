@@ -33,8 +33,6 @@ extern const GtkTargetEntry alchera_map_drop_target;
 
 /* UI */
 
-const gchar * ui_data_virtual_sprite_dialog = GUI_VIRTUAL_SPRITE_DIALOG;
-
 
 /********************************
 * VirtualSpriteDialog_UpdateName
@@ -85,7 +83,7 @@ gboolean VirtualSpriteDialog_Display( gchar * id )
 	g_return_val_if_fail( map_info, FALSE );
 
 	/* UI */
-	GtkBuilder * ui = Meg_Builder_Create( ui_data_virtual_sprite_dialog, __func__, __LINE__ );
+	GtkBuilder * ui = Meg_Builder_Load("virtual_sprite_dialog", __func__, __LINE__ );
 	g_return_val_if_fail( ui, FALSE );
 
 	/* Widgets */
